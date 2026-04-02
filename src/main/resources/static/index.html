@@ -41,13 +41,15 @@
             <div class="status-chip" id="statusLabel">空闲中</div>
         </header>
 
-        <section class="messages" id="messages">
-            <div class="empty-state" id="emptyState">
-                <strong>开始对话</strong>
-                <span>输入消息后即可收到流式回复。</span>
-            </div>
-        </section>
-        <button class="scroll-to-bottom-button" id="scrollToBottomButton" type="button" hidden>回到底部</button>
+        <div class="messages-shell">
+            <section class="messages" id="messages">
+                <div class="empty-state" id="emptyState">
+                    <strong>开始对话</strong>
+                    <span>输入消息后即可收到流式回复。</span>
+                </div>
+            </section>
+            <button class="scroll-to-bottom-button" id="scrollToBottomButton" type="button" hidden>回到底部</button>
+        </div>
 
         <footer class="composer">
             <div class="composer-box">
@@ -64,7 +66,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.11.1/lib/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.11.1/highlight.min.js"></script>
 <script src="/js/index.js"></script>
 </body>
 </html>

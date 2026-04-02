@@ -220,8 +220,14 @@ button:disabled {
     font-size: 13px;
 }
 
+.messages-shell {
+    position: relative;
+    min-height: 0;
+}
+
 .messages {
     position: relative;
+    height: 100%;
     padding: 26px 28px;
     overflow-y: auto;
     display: flex;
@@ -406,6 +412,53 @@ button:disabled {
     background: transparent;
 }
 
+.message-content pre code {
+    display: block;
+    color: #e2e8f0;
+}
+
+.message-content pre code .token-comment,
+.message-content pre code .hljs-comment,
+.message-content pre code .hljs-quote {
+    color: #7c8aa5;
+}
+
+.message-content pre code .token-keyword,
+.message-content pre code .hljs-keyword,
+.message-content pre code .hljs-selector-tag,
+.message-content pre code .hljs-literal {
+    color: #ff8f70;
+}
+
+.message-content pre code .token-string,
+.message-content pre code .hljs-string,
+.message-content pre code .hljs-attr,
+.message-content pre code .hljs-doctag {
+    color: #9fe870;
+}
+
+.message-content pre code .token-number,
+.message-content pre code .hljs-number,
+.message-content pre code .hljs-attribute {
+    color: #ffd369;
+}
+
+.message-content pre code .token-annotation,
+.message-content pre code .token-property,
+.message-content pre code .hljs-title,
+.message-content pre code .hljs-section,
+.message-content pre code .hljs-type,
+.message-content pre code .hljs-built_in {
+    color: #7dd3fc;
+}
+
+.message-content pre code .hljs-variable,
+.message-content pre code .hljs-params,
+.message-content pre code .hljs-name,
+.message-content pre code .hljs-tag {
+    color: #f8fafc;
+}
+
 .message.assistant.streaming::after {
     content: "";
     display: inline-block;
@@ -420,8 +473,8 @@ button:disabled {
 
 .scroll-to-bottom-button {
     position: absolute;
-    right: 40px;
-    bottom: 136px;
+    right: 24px;
+    bottom: 24px;
     z-index: 2;
     min-height: 42px;
     padding: 10px 16px;
@@ -429,6 +482,7 @@ button:disabled {
     color: #fffaf4;
     background: linear-gradient(135deg, var(--accent), var(--accent-deep));
     box-shadow: 0 14px 32px rgba(88, 54, 19, 0.22);
+    opacity: 0.96;
 }
 
 .composer {
@@ -528,7 +582,7 @@ textarea {
     }
 
     .scroll-to-bottom-button {
-        right: 24px;
-        bottom: 120px;
+        right: 18px;
+        bottom: 18px;
     }
 }

@@ -105,12 +105,137 @@ function detectCodeLanguage(codeEl) {
     return "code";
 }
 
+function escapeHtml(text) {
+    return (text || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+}
+
+function normalizeCodeLanguage(language, code) {
+    const normalized = (language || "").toLowerCase();
+    const aliases = {
+        js: "javascript",
+        jsx: "javascript",
+        ts: "typescript",
+        tsx: "typescript",
+        yml: "yaml",
+        sh: "bash",
+        shell: "bash",
+        zsh: "bash",
+        html: "xml",
+        vue: "xml",
+        plaintext: "text",
+        plain: "text",
+        code: inferCodeLanguage(code)
+    };
+
+    return aliases[normalized] || normalized || inferCodeLanguage(code);
+}
+
+function inferCodeLanguage(code) {
+    const text = code || "";
+
+    if (/@\w+|public\s+class|private\s+final|implements\s+\w+|System\.out\.println/.test(text)) {
+        return "java";
+    }
+    if (/^\s*\{[\s\S]*\}\s*$/.test(text) && /"\w+"\s*:/.test(text)) {
+        return "json";
+    }
+    if (/<\/?[a-z][\s\S]*>/i.test(text)) {
+        return "xml";
+    }
+    if (/\b(const|let|function|=>|console\.log)\b/.test(text)) {
+        return "javascript";
+    }
+    if (/\b(select|insert|update|delete|from|where|join)\b/i.test(text)) {
+        return "sql";
+    }
+    if (/^\s*(curl|npm|pnpm|yarn|git|cd|ls)\b/m.test(text) || /^#!/.test(text)) {
+        return "bash";
+    }
+
+    return "text";
+}
+
+function applyKeywordHighlight(escapedText, keywords, className = "token-keyword") {
+    if (!keywords.length) {
+        return escapedText;
+    }
+
+    const pattern = new RegExp("\\b(" + keywords.join("|") + ")\\b", "gi");
+    return escapedText.replace(pattern, '<span class="' + className + '">$1</span>');
+}
+
+function renderFallbackHighlight(code, language) {
+    const source = code || "";
+    const tokenStore = [];
+
+    const stash = (text, regex, className) => text.replace(regex, (match) => {
+        const token = "__HL_TOKEN_" + tokenStore.length + "__";
+        tokenStore.push('<span class="' + className + '">' + escapeHtml(match) + "</span>");
+        return token;
+    });
+
+    let content = source;
+
+    content = stash(content, /\/\*[\s\S]*?\*\//g, "token-comment");
+    content = stash(content, /\/\/.*$/gm, "token-comment");
+    content = stash(content, /#.*$/gm, "token-comment");
+    content = stash(content, /"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|`(?:\\.|[^`\\])*`/g, "token-string");
+
+    if (language === "java") {
+        content = stash(content, /@\w+/g, "token-annotation");
+    }
+
+    let escaped = escapeHtml(content);
+
+    const keywordMap = {
+        java: ["package", "import", "class", "interface", "enum", "extends", "implements", "public", "private", "protected", "static", "final", "void", "new", "return", "if", "else", "for", "while", "switch", "case", "break", "continue", "try", "catch", "finally", "throw", "throws", "null", "true", "false", "this", "super", "record"],
+        javascript: ["const", "let", "var", "function", "return", "if", "else", "for", "while", "switch", "case", "break", "continue", "try", "catch", "finally", "throw", "new", "class", "extends", "import", "from", "export", "default", "async", "await", "true", "false", "null", "undefined"],
+        typescript: ["const", "let", "var", "function", "return", "if", "else", "for", "while", "switch", "case", "break", "continue", "try", "catch", "finally", "throw", "new", "class", "extends", "interface", "type", "implements", "import", "from", "export", "default", "async", "await", "public", "private", "protected", "readonly", "true", "false", "null", "undefined"],
+        json: ["true", "false", "null"],
+        sql: ["select", "insert", "update", "delete", "from", "where", "join", "left", "right", "inner", "outer", "group", "by", "order", "limit", "as", "and", "or", "not", "into", "values", "set", "create", "table", "alter", "drop"],
+        bash: ["if", "then", "else", "fi", "for", "do", "done", "case", "esac", "function", "in", "export", "local", "echo", "exit"],
+        xml: []
+    };
+
+    escaped = applyKeywordHighlight(escaped, keywordMap[language] || []);
+    escaped = escaped.replace(/\b(\d+(?:\.\d+)?)\b/g, '<span class="token-number">$1</span>');
+
+    if (language === "json") {
+        escaped = escaped.replace(/"([^"]+)"(?=\s*:)/g, '<span class="token-property">"$1"</span>');
+    }
+
+    if (language === "xml") {
+        escaped = escaped.replace(/(&lt;\/?)([\w:-]+)/g, '$1<span class="token-keyword">$2</span>');
+    }
+
+    return escaped.replace(/__HL_TOKEN_(\d+)__/g, (_, index) => tokenStore[Number(index)] || "");
+}
+
 function enhanceCodeBlocks(container) {
     const codeBlocks = container.querySelectorAll("pre > code");
 
     codeBlocks.forEach((codeEl) => {
-        if (window.hljs && !codeEl.dataset.highlighted) {
-            window.hljs.highlightElement(codeEl);
+        if (!codeEl.dataset.highlighted) {
+            const originalCode = codeEl.textContent || "";
+            const detectedLanguage = normalizeCodeLanguage(detectCodeLanguage(codeEl), originalCode);
+
+            if (window.hljs && window.hljs.getLanguage(detectedLanguage)) {
+                codeEl.classList.add("language-" + detectedLanguage);
+                window.hljs.highlightElement(codeEl);
+            } else if (window.hljs) {
+                const highlighted = window.hljs.highlightAuto(codeEl.textContent || "");
+                codeEl.innerHTML = highlighted.value;
+                codeEl.classList.add("hljs");
+                if (highlighted.language) {
+                    codeEl.classList.add("language-" + highlighted.language);
+                }
+            } else {
+                codeEl.innerHTML = renderFallbackHighlight(originalCode, detectedLanguage);
+                codeEl.classList.add("hljs", "fallback-highlight", "language-" + detectedLanguage);
+            }
             codeEl.dataset.highlighted = "true";
         }
 
@@ -127,7 +252,7 @@ function enhanceCodeBlocks(container) {
 
         const languageEl = document.createElement("span");
         languageEl.className = "code-block-language";
-        languageEl.textContent = detectCodeLanguage(codeEl);
+        languageEl.textContent = normalizeCodeLanguage(detectCodeLanguage(codeEl), codeEl.textContent || "");
 
         const copyButtonEl = document.createElement("button");
         copyButtonEl.type = "button";
