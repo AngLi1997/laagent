@@ -4,7 +4,7 @@ spring:
 langchain4j:
   ollama:
     streaming-chat-model:
-      model-name: qwen3.5:397b-cloud
+      model-name: deepseek-v3.2:cloud
       base-url: http://localhost:11434
       think: false
       log-requests: true

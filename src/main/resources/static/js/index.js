@@ -7,10 +7,12 @@ const sendButtonEl = document.getElementById("sendButton");
 const stopButtonEl = document.getElementById("stopButton");
 const clearButtonEl = document.getElementById("clearButton");
 const newChatButtonEl = document.getElementById("newChatButton");
+const scrollToBottomButtonEl = document.getElementById("scrollToBottomButton");
 
 let memoryId = createMemoryId();
 let currentAbortController = null;
 let streamingMessageEl = null;
+let shouldAutoScroll = true;
 
 memoryIdLabelEl.textContent = memoryId;
 
@@ -18,6 +20,12 @@ marked.setOptions({
     breaks: true,
     gfm: true
 });
+
+if (window.hljs) {
+    window.hljs.configure({
+        ignoreUnescapedHTML: true
+    });
+}
 
 function normalizeMarkdown(markdown) {
     if (!markdown) {
@@ -66,8 +74,79 @@ function hideEmptyState() {
     }
 }
 
+function isNearBottom() {
+    const distance = messagesEl.scrollHeight - messagesEl.scrollTop - messagesEl.clientHeight;
+    return distance <= 40;
+}
+
+function updateScrollState() {
+    shouldAutoScroll = isNearBottom();
+    scrollToBottomButtonEl.hidden = shouldAutoScroll;
+}
+
 function scrollToBottom() {
     messagesEl.scrollTop = messagesEl.scrollHeight;
+    shouldAutoScroll = true;
+    scrollToBottomButtonEl.hidden = true;
+}
+
+function maybeScrollToBottom(force = false) {
+    if (force || shouldAutoScroll) {
+        scrollToBottom();
+    }
+}
+
+function detectCodeLanguage(codeEl) {
+    const className = codeEl.className || "";
+    const matched = className.match(/language-([\w-]+)/i) || className.match(/lang-([\w-]+)/i);
+    if (matched) {
+        return matched[1];
+    }
+    return "code";
+}
+
+function enhanceCodeBlocks(container) {
+    const codeBlocks = container.querySelectorAll("pre > code");
+
+    codeBlocks.forEach((codeEl) => {
+        if (window.hljs && !codeEl.dataset.highlighted) {
+            window.hljs.highlightElement(codeEl);
+            codeEl.dataset.highlighted = "true";
+        }
+
+        const preEl = codeEl.parentElement;
+        if (!preEl || preEl.parentElement?.classList.contains("code-block")) {
+            return;
+        }
+
+        const blockEl = document.createElement("div");
+        blockEl.className = "code-block";
+
+        const headerEl = document.createElement("div");
+        headerEl.className = "code-block-header";
+
+        const languageEl = document.createElement("span");
+        languageEl.className = "code-block-language";
+        languageEl.textContent = detectCodeLanguage(codeEl);
+
+        const copyButtonEl = document.createElement("button");
+        copyButtonEl.type = "button";
+        copyButtonEl.className = "copy-code-button";
+        copyButtonEl.textContent = "复制";
+        copyButtonEl.dataset.copyCode = codeEl.textContent || "";
+
+        headerEl.appendChild(languageEl);
+        headerEl.appendChild(copyButtonEl);
+
+        preEl.parentElement.insertBefore(blockEl, preEl);
+        blockEl.appendChild(headerEl);
+        blockEl.appendChild(preEl);
+    });
+}
+
+function renderAssistantContent(targetEl, markdown) {
+    targetEl.innerHTML = renderMarkdown(markdown);
+    enhanceCodeBlocks(targetEl);
 }
 
 function appendMessage(role, content) {
@@ -84,7 +163,7 @@ function appendMessage(role, content) {
     contentEl.className = "message-content";
 
     if (role === "assistant") {
-        contentEl.innerHTML = renderMarkdown(content);
+        renderAssistantContent(contentEl, content);
     } else {
         contentEl.textContent = content;
     }
@@ -92,7 +171,7 @@ function appendMessage(role, content) {
     wrapper.appendChild(roleEl);
     wrapper.appendChild(contentEl);
     messagesEl.appendChild(wrapper);
-    scrollToBottom();
+    maybeScrollToBottom(true);
 
     return { wrapper, contentEl };
 }
@@ -111,7 +190,7 @@ function finishAssistantMessage() {
     streamingMessageEl.wrapper.classList.remove("streaming");
     if (!streamingMessageEl.rawText.trim()) {
         streamingMessageEl.rawText = "[未返回内容]";
-        streamingMessageEl.contentEl.innerHTML = renderMarkdown(streamingMessageEl.rawText);
+        renderAssistantContent(streamingMessageEl.contentEl, streamingMessageEl.rawText);
     }
     streamingMessageEl = null;
 }
@@ -122,8 +201,8 @@ function appendAssistantChunk(chunk) {
     }
 
     streamingMessageEl.rawText += chunk;
-    streamingMessageEl.contentEl.innerHTML = renderMarkdown(streamingMessageEl.rawText);
-    scrollToBottom();
+    renderAssistantContent(streamingMessageEl.contentEl, streamingMessageEl.rawText);
+    maybeScrollToBottom();
 }
 
 function clearMessages() {
@@ -134,6 +213,8 @@ function clearMessages() {
     empty.className = "empty-state";
     empty.innerHTML = "<strong>新的会话</strong><span>输入消息开始新的上下文。</span>";
     messagesEl.appendChild(empty);
+    shouldAutoScroll = true;
+    scrollToBottomButtonEl.hidden = true;
 }
 
 function parseEventStreamChunk(buffer) {
@@ -250,6 +331,35 @@ async function sendMessage() {
 }
 
 sendButtonEl.addEventListener("click", sendMessage);
+
+messagesEl.addEventListener("scroll", updateScrollState);
+
+messagesEl.addEventListener("click", async (event) => {
+    const buttonEl = event.target.closest(".copy-code-button");
+    if (!buttonEl) {
+        return;
+    }
+
+    const code = buttonEl.dataset.copyCode || "";
+    try {
+        await navigator.clipboard.writeText(code);
+        buttonEl.textContent = "已复制";
+        buttonEl.classList.add("copied");
+        window.setTimeout(() => {
+            buttonEl.textContent = "复制";
+            buttonEl.classList.remove("copied");
+        }, 1200);
+    } catch (error) {
+        buttonEl.textContent = "复制失败";
+        window.setTimeout(() => {
+            buttonEl.textContent = "复制";
+        }, 1200);
+    }
+});
+
+scrollToBottomButtonEl.addEventListener("click", () => {
+    scrollToBottom();
+});
 
 clearButtonEl.addEventListener("click", () => {
     messageInputEl.value = "";
