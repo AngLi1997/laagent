@@ -280,6 +280,114 @@ function renderAssistantContent(targetEl, markdown) {
     enhanceCodeBlocks(targetEl);
 }
 
+/**
+ * 检测 markdown 文本末尾是否存在"会导致渲染错误"的未闭合行内标记。
+ *
+ * 核心规则（CommonMark）：行内强调（** * __ _ `）不能跨越硬换行。
+ * 因此：即使 open 和 close 在字符串中成对出现，
+ * 若两者之间含 \n，也要视为"未闭合"——否则 markdown-it 会按字面输出 **。
+ *
+ * 返回值：安全可渲染的截止位置（exclusive），-1 表示整段均可渲染。
+ */
+function findSafeRenderLength(text) {
+    if (!text) return -1;
+
+    // 只检查末尾 150 个字符，足够覆盖所有行内标记场景
+    const tail = text.slice(-150);
+    const tailStart = text.length - tail.length;
+
+    let earliestCut = Infinity;
+
+    /**
+     * @param {string} marker   - 开/闭标记字符串（相同）
+     * @param {boolean} allowNewline - 是否允许 open/close 之间有换行（代码围栏为 true）
+     */
+    function checkMarker(marker, allowNewline) {
+        let pos = 0;
+        while (pos < tail.length) {
+            const openIdx = tail.indexOf(marker, pos);
+            if (openIdx === -1) break;
+
+            // 单字符标记（* _ `）：若前后字符与自身相同，说明是双字符标记的一部分，跳过整组
+            if (marker.length === 1) {
+                const prev = tail[openIdx - 1];
+                const next = tail[openIdx + 1];
+                if (prev === marker || next === marker) {
+                    // 跳过连续的同字符序列，整体跳过
+                    let skip = openIdx;
+                    while (skip < tail.length && tail[skip] === marker) skip++;
+                    pos = skip;
+                    continue;
+                }
+            }
+
+            const afterOpen = openIdx + marker.length;
+            const closeIdx = tail.indexOf(marker, afterOpen);
+
+            if (closeIdx === -1) {
+                // 没有找到闭合标记 → 未闭合
+                earliestCut = Math.min(earliestCut, openIdx);
+                break;
+            }
+
+            // 行内标记：open 与 close 之间不能有换行
+            if (!allowNewline) {
+                const between = tail.slice(afterOpen, closeIdx);
+                if (between.includes('\n')) {
+                    // 跨越换行的"配对"在 CommonMark 中不算闭合 → 视为未闭合
+                    earliestCut = Math.min(earliestCut, openIdx);
+                    break;
+                }
+            }
+
+            // 已正常闭合，继续向后扫描
+            pos = closeIdx + marker.length;
+        }
+    }
+
+    // 长标记先检查，避免被短标记规则误判
+    checkMarker('```', true);  // 代码围栏，允许跨行
+    checkMarker('**',  false); // 加粗，不允许跨行
+    checkMarker('__',  false); // 加粗（备用语法）
+    checkMarker('`',   false); // 行内代码
+    checkMarker('*',   false); // 斜体
+    checkMarker('_',   false); // 斜体（备用语法）
+
+    if (earliestCut === Infinity) return -1;
+
+    const absoluteCutAt = tailStart + earliestCut;
+    // 截断点过于靠前时放弃截断（避免内容完全不显示）
+    if (absoluteCutAt < 2) return -1;
+    return absoluteCutAt;
+}
+
+
+function renderStreamingContent(targetEl, rawText) {
+    const safeLen = findSafeRenderLength(rawText);
+
+    if (safeLen === -1) {
+        // 整段文本都可安全渲染
+        renderAssistantContent(targetEl, rawText);
+        return;
+    }
+
+    // 渲染安全部分
+    const safePart = rawText.slice(0, safeLen);
+    const tailPart = rawText.slice(safeLen);
+
+    // 先渲染已闭合的 markdown
+    const safeHtml = renderMarkdown(safePart);
+
+    // 尾部不完整片段以纯文本追加（不经过 markdown 解析）
+    const tailEscaped = tailPart
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+
+    targetEl.innerHTML = safeHtml + '<span class="streaming-tail">' + tailEscaped + '</span>';
+    enhanceCodeBlocks(targetEl);
+}
+
 function appendMessage(role, content) {
     hideEmptyState();
 
@@ -332,7 +440,7 @@ function appendAssistantChunk(chunk) {
     }
 
     streamingMessageEl.rawText += chunk;
-    renderAssistantContent(streamingMessageEl.contentEl, streamingMessageEl.rawText);
+    renderStreamingContent(streamingMessageEl.contentEl, streamingMessageEl.rawText);
     maybeScrollToBottom();
 }
 
