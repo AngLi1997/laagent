@@ -16,16 +16,25 @@ let shouldAutoScroll = true;
 
 memoryIdLabelEl.textContent = memoryId;
 
-marked.setOptions({
+const md = window.markdownit({
     breaks: true,
-    gfm: true
+    linkify: true,
+    typographer: false,
+    highlight: function(code, lang) {
+        const language = normalizeCodeLanguage(lang, code);
+        if (window.hljs) {
+            if (language && window.hljs.getLanguage(language)) {
+                try {
+                    return window.hljs.highlight(code, { language, ignoreIllegals: true }).value;
+                } catch (_) {}
+            }
+            try {
+                return window.hljs.highlightAuto(code).value;
+            } catch (_) {}
+        }
+        return renderFallbackHighlight(code, language);
+    }
 });
-
-if (window.hljs) {
-    window.hljs.configure({
-        ignoreUnescapedHTML: true
-    });
-}
 
 function normalizeMarkdown(markdown) {
     if (!markdown) {
@@ -63,8 +72,11 @@ function setStreaming(active) {
 
 function renderMarkdown(markdown) {
     const normalizedMarkdown = normalizeMarkdown(markdown);
-    const unsafeHtml = marked.parse(normalizedMarkdown);
-    return DOMPurify.sanitize(unsafeHtml);
+    const unsafeHtml = md.render(normalizedMarkdown);
+    return DOMPurify.sanitize(unsafeHtml, {
+        ADD_ATTR: ['class'],
+        FORCE_BODY: false
+    });
 }
 
 function hideEmptyState() {
@@ -125,6 +137,8 @@ function normalizeCodeLanguage(language, code) {
         zsh: "bash",
         html: "xml",
         vue: "xml",
+        py: "python",
+        python3: "python",
         plaintext: "text",
         plain: "text",
         code: inferCodeLanguage(code)
@@ -153,6 +167,9 @@ function inferCodeLanguage(code) {
     }
     if (/^\s*(curl|npm|pnpm|yarn|git|cd|ls)\b/m.test(text) || /^#!/.test(text)) {
         return "bash";
+    }
+    if (/\bdef\s+\w+\s*\(|\bimport\s+\w+|\bfrom\s+\w+\s+import|print\s*\(|\bpip\s+install\b/.test(text)) {
+        return "python";
     }
 
     return "text";
@@ -197,6 +214,7 @@ function renderFallbackHighlight(code, language) {
         json: ["true", "false", "null"],
         sql: ["select", "insert", "update", "delete", "from", "where", "join", "left", "right", "inner", "outer", "group", "by", "order", "limit", "as", "and", "or", "not", "into", "values", "set", "create", "table", "alter", "drop"],
         bash: ["if", "then", "else", "fi", "for", "do", "done", "case", "esac", "function", "in", "export", "local", "echo", "exit"],
+        python: ["def", "class", "import", "from", "return", "if", "elif", "else", "for", "while", "in", "not", "and", "or", "is", "None", "True", "False", "try", "except", "finally", "raise", "with", "as", "pass", "break", "continue", "lambda", "yield", "global", "nonlocal", "del", "assert", "async", "await"],
         xml: []
     };
 
@@ -218,31 +236,19 @@ function enhanceCodeBlocks(container) {
     const codeBlocks = container.querySelectorAll("pre > code");
 
     codeBlocks.forEach((codeEl) => {
-        if (!codeEl.dataset.highlighted) {
-            const originalCode = codeEl.textContent || "";
-            const detectedLanguage = normalizeCodeLanguage(detectCodeLanguage(codeEl), originalCode);
-
-            if (window.hljs && window.hljs.getLanguage(detectedLanguage)) {
-                codeEl.classList.add("language-" + detectedLanguage);
-                window.hljs.highlightElement(codeEl);
-            } else if (window.hljs) {
-                const highlighted = window.hljs.highlightAuto(codeEl.textContent || "");
-                codeEl.innerHTML = highlighted.value;
-                codeEl.classList.add("hljs");
-                if (highlighted.language) {
-                    codeEl.classList.add("language-" + highlighted.language);
-                }
-            } else {
-                codeEl.innerHTML = renderFallbackHighlight(originalCode, detectedLanguage);
-                codeEl.classList.add("hljs", "fallback-highlight", "language-" + detectedLanguage);
-            }
-            codeEl.dataset.highlighted = "true";
+        // Add hljs class if not already present (so styles apply)
+        if (!codeEl.classList.contains("hljs")) {
+            codeEl.classList.add("hljs");
         }
 
         const preEl = codeEl.parentElement;
         if (!preEl || preEl.parentElement?.classList.contains("code-block")) {
             return;
         }
+
+        // Detect language from class name set by markdown-it (e.g. language-java)
+        const rawLang = detectCodeLanguage(codeEl);
+        const displayLang = normalizeCodeLanguage(rawLang, codeEl.textContent || "");
 
         const blockEl = document.createElement("div");
         blockEl.className = "code-block";
@@ -252,7 +258,7 @@ function enhanceCodeBlocks(container) {
 
         const languageEl = document.createElement("span");
         languageEl.className = "code-block-language";
-        languageEl.textContent = normalizeCodeLanguage(detectCodeLanguage(codeEl), codeEl.textContent || "");
+        languageEl.textContent = displayLang;
 
         const copyButtonEl = document.createElement("button");
         copyButtonEl.type = "button";
