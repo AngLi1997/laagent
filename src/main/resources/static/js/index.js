@@ -188,18 +188,30 @@ function renderFallbackHighlight(code, language) {
     const source = code || "";
     const tokenStore = [];
 
+    // 使用全单词字符包裹 Token，确保 \b 边界检查不会切入 Token 内部
     const stash = (text, regex, className) => text.replace(regex, (match) => {
-        const token = "__HL_TOKEN_" + tokenStore.length + "__";
+        const token = "STASHEDTOKEN_" + tokenStore.length + "_STASHED";
         tokenStore.push('<span class="' + className + '">' + escapeHtml(match) + "</span>");
         return token;
     });
 
     let content = source;
 
+    // 1. 优先处理字符串，防止字符串内的 // 或 /* 被误识别为注释
+    // 注意：单双引号字符串通常不跨行，这样在流式输出时更安全
+    content = stash(content, /"(?:\\.|[^"\\])*"/g, "token-string");
+    content = stash(content, /'(?:\\.|[^'\\\n])*'/g, "token-string");
+    // 反引号允许跨行
+    content = stash(content, /`(?:\\.|[^`\\])*`/g, "token-string");
+
+    // 2. 处理块注释
     content = stash(content, /\/\*[\s\S]*?\*\//g, "token-comment");
+
+    // 3. 处理单行注释
     content = stash(content, /\/\/.*$/gm, "token-comment");
-    content = stash(content, /#.*$/gm, "token-comment");
-    content = stash(content, /"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|`(?:\\.|[^`\\])*`/g, "token-string");
+    if (["python", "bash", "yaml", "sql", "yml", "sh", "py"].includes(language)) {
+        content = stash(content, /#.*$/gm, "token-comment");
+    }
 
     if (language === "java") {
         content = stash(content, /@\w+/g, "token-annotation");
@@ -229,7 +241,15 @@ function renderFallbackHighlight(code, language) {
         escaped = escaped.replace(/(&lt;\/?)([\w:-]+)/g, '$1<span class="token-keyword">$2</span>');
     }
 
-    return escaped.replace(/__HL_TOKEN_(\d+)__/g, (_, index) => tokenStore[Number(index)] || "");
+    // 最后还原所有 Token
+    return escaped.replace(/STASHEDTOKEN_(\d+)_STASHED/g, (_, index) => {
+        const idx = Number(index);
+        if (tokenStore[idx] === undefined) {
+            console.error("Token missing for index:", idx, "Total tokens:", tokenStore.length);
+            return ""; 
+        }
+        return tokenStore[idx];
+    });
 }
 
 function enhanceCodeBlocks(container) {
