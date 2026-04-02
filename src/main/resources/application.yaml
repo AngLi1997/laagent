@@ -7,3 +7,9 @@ langchain4j:
       model-name: qwen3.5:397b-cloud
       base-url: http://localhost:11434
       think: false
+      log-requests: true
+      log-responses: true
+logging:
+  level:
+    dev:
+      langchain4j: DEBUG

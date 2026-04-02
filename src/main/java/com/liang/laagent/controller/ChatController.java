@@ -20,7 +20,6 @@ public class ChatController {
                 .doFirst(()->{
                     System.out.println("========开始输出========");
                 })
-                .doOnNext(System.out::println)
                 .doOnComplete(()->{
                     System.out.println("========输出完成========");
                 })

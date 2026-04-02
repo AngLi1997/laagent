@@ -1,10 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>Let's Chat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LA Agent</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
-  hello world
+<div class="app-shell">
+    <aside class="sidebar panel">
+        <div class="brand-block">
+            <div class="brand-mark">LA</div>
+            <div>
+                <p class="brand-kicker">Agent</p>
+                <h1>LA Agent</h1>
+            </div>
+        </div>
+
+        <section class="session-card">
+            <span class="section-label">会话</span>
+            <div class="memory-id" id="memoryIdLabel"></div>
+        </section>
+
+        <div class="sidebar-actions">
+            <button class="primary-button" id="newChatButton" type="button">新对话</button>
+            <button class="secondary-button" id="stopButton" type="button" disabled>停止</button>
+        </div>
+    </aside>
+
+    <main class="chat-panel panel">
+        <header class="chat-header">
+            <div>
+                <h2>对话</h2>
+                <p id="streamHint">等待输入</p>
+            </div>
+            <div class="status-chip" id="statusLabel">空闲中</div>
+        </header>
+
+        <section class="messages" id="messages">
+            <div class="empty-state" id="emptyState">
+                <strong>开始对话</strong>
+                <span>输入消息后即可收到流式回复。</span>
+            </div>
+        </section>
+
+        <footer class="composer">
+            <div class="composer-box">
+                <label class="sr-only" for="messageInput">输入消息</label>
+                <textarea id="messageInput" placeholder="输入消息，Enter 发送，Shift + Enter 换行"></textarea>
+                <div class="composer-actions">
+                    <button class="primary-button" id="sendButton" type="button">发送</button>
+                    <button class="secondary-button" id="clearButton" type="button">清空</button>
+                </div>
+            </div>
+        </footer>
+    </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
+<script src="/js/index.js"></script>
 </body>
 </html>
