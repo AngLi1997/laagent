@@ -359,7 +359,9 @@ function parseEventStreamChunk(buffer) {
 
         for (const line of lines) {
             if (line.startsWith("data:")) {
-                dataLines.push(line.slice(5).trimStart());
+                // Spring WebFlux SSE writes "data:<content>" with no separator space,
+                // so we must NOT strip anything — take the content verbatim after "data:"
+                dataLines.push(line.slice(5));
             } else if (!line.startsWith(":") && line.trim()) {
                 dataLines.push(line);
             }
@@ -516,7 +518,8 @@ newChatButtonEl.addEventListener("click", () => {
 });
 
 messageInputEl.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" && !event.shiftKey) {
+    // isComposing 为 true 时说明输入法正在组字（如拼音），此时 Enter 应交给输入法处理
+    if (event.key === "Enter" && !event.shiftKey && !event.isComposing) {
         event.preventDefault();
         sendMessage();
     }
