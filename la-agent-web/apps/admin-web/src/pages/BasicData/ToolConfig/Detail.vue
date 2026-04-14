@@ -37,13 +37,6 @@
       </div>
     </div>
   </BreadcrumbButton>
-  <PermissionDeptModal
-    v-model:permission-open="permissionDeptModalOpen"
-    :save-immediate="false"
-    :is-add="true"
-    :type="false"
-    @ok="savePermissionDept"
-  />
   <TestApiModal v-model:test-modal-open="testApiModal" :test-api-data />
   <MCPTestModal v-model:open="testMCPModal" :mcp-str="editorValue" />
 </template>
@@ -53,7 +46,6 @@ import type { formInstance, FormProps, Recordable, RenderCallbackParams } from '
 import { reqAgentToolCreate, reqAgentToolsFind, reqAgentToolsUpdate } from '@/api';
 import BreadcrumbButton from '@/components/BreadcrumbButton/index.vue';
 import Editor from '@/components/Editor/index.vue';
-import PermissionDeptModal from '@/components/PermissionDept/index.vue';
 import { BMForm } from '@bmos/components';
 import { t } from '@bmos/i18n';
 import { getUUID } from '@bmos/utils';
@@ -312,7 +304,6 @@ watch(
     immediate: true,
   },
 );
-const permissionDeptModalOpen = ref<boolean>(false);
 const saveFun = async (params: any) => {
   try {
     if (optionStatus.value === OperationType.Add) {
@@ -344,28 +335,16 @@ const validateGetSaveData = async () => {
     };
   }
 };
-const savePermissionDept = async (dept_ids: any[]) => {
-  try {
-    const saveData = await validateGetSaveData();
-    saveFun({
-      ...saveData,
-      dept_ids,
-    });
-  }
-  catch (error: any) {
-    error.message && message.error(error.message);
-  }
-};
 const save = async () => {
   const saveData = await validateGetSaveData();
-  if (optionStatus.value === OperationType.Add) {
-    permissionDeptModalOpen.value = true;
-  }
-  else {
+  if (optionStatus.value !== OperationType.Add) {
     saveFun({
       ...saveData,
       id: route.query.id,
     });
+  }
+  else {
+    saveFun(saveData);
   }
 };
 

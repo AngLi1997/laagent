@@ -1,4 +1,4 @@
-import type { FormProps, Recordable, TableColumn } from '@bmos/components';
+import type { FormProps, TableColumn } from '@bmos/components';
 import { reqAgentToolRemove } from '@/api';
 import { useWarn } from '@/hooks';
 import { t } from '@bmos/i18n';
@@ -13,13 +13,7 @@ export const useTable = () => {
   const updateTable = () => {
     pageRef.value?.fetchData(0);
   };
-  // 数据权限modal
-  const permissionModalOpen = ref<boolean>(false);
-  const savePermission = async () => {
-    updateTable();
-  };
 
-  const rowData = ref<Recordable>({});
   const columnsFirst: TableColumn[] = [
     {
       title: t('工具名称'),
@@ -84,14 +78,6 @@ export const useTable = () => {
           },
         },
         {
-          label: t('数据权限'),
-          code: '230010002000004',
-          onClick: () => {
-            permissionModalOpen.value = true;
-            rowData.value = record;
-          },
-        },
-        {
           label: t('删除'),
           code: '230010002000005',
           danger: true,
@@ -125,9 +111,6 @@ export const useTable = () => {
     pageRef,
     columnsFirst,
     formFirstProps,
-    rowData,
-    permissionModalOpen,
-    savePermission,
     updateTable,
   };
 };

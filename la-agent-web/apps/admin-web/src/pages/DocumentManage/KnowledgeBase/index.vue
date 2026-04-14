@@ -25,7 +25,6 @@
     @tree-action="handleTreeAction"
   >
     <template #tableHeaderToolbar0="{ treeNode }">
-      <PermissionModal v-model:permission-open="permissionModalOpen" :resource-id="rowData?.id" @ok="savePermission" />
       <Button v-hasAuth="230020002000004" type="primary" @click="() => handleAddDataset(treeNode)">
         {{ t('新增知识库') }}
       </Button>
@@ -44,7 +43,6 @@
 </template>
 
 <script setup lang="ts">
-import PermissionModal from '@/components/PermissionDept/index.vue';
 import { usePermissionStore } from '@/stores/permission';
 import { BMModalForm, BMPageComponent, BMTableTitle } from '@bmos/components';
 import { t } from '@bmos/i18n';
@@ -67,9 +65,6 @@ const {
   treeModalTitle,
   treeModalFormProps,
   treeModalSubmit,
-  permissionModalOpen,
-  savePermission,
-  rowData,
 } = useTables();
 
 const handleAddDataset = (treeNode: any) => {

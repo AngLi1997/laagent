@@ -57,20 +57,18 @@ const formProps: Partial<FormProps> = {
     },
     {
       field: 'description',
-      component: 'InputTextArea',
+      component: 'Input',
       label: t('模型描述'),
     },
     {
       field: 'args',
       component: 'Input',
       label: t('模型参数大小'),
-      required: true,
     },
     {
       field: 'temperature',
       component: 'InputNumber',
       label: t('创造力'),
-      required: true,
       componentProps: {
         min: 0,
         max: 2,

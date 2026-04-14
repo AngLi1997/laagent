@@ -19,13 +19,6 @@
     </template>
     <BMForm ref="formRef" v-bind="formProps" />
   </BreadcrumbButton>
-  <PermissionDeptModal
-    v-model:permission-open="permissionDeptModalOpen"
-    :save-immediate="false"
-    :is-add="true"
-    :type="false"
-    @ok="savePermissionDept"
-  />
 </template>
 
 <script lang="tsx" setup>
@@ -37,7 +30,6 @@ import type {
 } from '@bmos/components';
 import { reqKnowledgeBaseCreate, reqKnowledgeBaseEdit, reqKnowledgeBaseInfo, reqKnowledgeDocumentCategoryDocumentsTree } from '@/api';
 import BreadcrumbButton from '@/components/BreadcrumbButton/index.vue';
-import PermissionDeptModal from '@/components/PermissionDept/index.vue';
 import { useWarn } from '@/hooks';
 import {
   BMForm,
@@ -306,7 +298,6 @@ watch(
     immediate: true,
   },
 );
-const permissionDeptModalOpen = ref<boolean>(false);
 const saveFun = async (params: any) => {
   try {
     if (optionStatus.value === OperationType.Edit) {
@@ -344,27 +335,10 @@ const validateGetSaveData = async () => {
   catch (_error: any) {
   }
 };
-const savePermissionDept = async (dept_ids: any[]) => {
-  try {
-    const saveData = await validateGetSaveData();
-    saveFun({
-      ...saveData,
-      dept_ids,
-    });
-  }
-  catch (error: any) {
-    error.message && message.error(error.message);
-  }
-};
 const save = async () => {
   try {
     const saveData = await validateGetSaveData();
-    if (optionStatus.value === OperationType.Add) {
-      permissionDeptModalOpen.value = true;
-    }
-    else {
-      saveFun(saveData);
-    }
+    saveFun(saveData);
   }
   catch (error) {
     if (error === 'hasDuplicates') {

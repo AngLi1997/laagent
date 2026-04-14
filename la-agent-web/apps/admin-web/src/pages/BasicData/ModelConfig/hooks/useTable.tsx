@@ -7,16 +7,10 @@ export const useTable = () => {
   const updateTable = () => {
     pageRef.value?.fetchData(0);
   };
-  // 数据权限modal
-  const permissionModalOpen = ref<boolean>(false);
-  const savePermission = async () => {
-    updateTable();
-  };
 
   const chatModelOpen = ref<boolean>(false);
 
   const chatQuery = ref<Recordable>({});
-  const rowData = ref<Recordable>({});
   const columnsFirst: TableColumn[] = [
     {
       title: t('模型名称'),
@@ -88,14 +82,6 @@ export const useTable = () => {
             chatModelOpen.value = true;
           },
         },
-        {
-          label: t('数据权限'),
-          code: '230010001000002',
-          onClick: () => {
-            permissionModalOpen.value = true;
-            rowData.value = record;
-          },
-        },
       ],
     },
   ];
@@ -111,11 +97,8 @@ export const useTable = () => {
     pageRef,
     columnsFirst,
     formFirstProps,
-    rowData,
-    permissionModalOpen,
     chatModelOpen,
     chatQuery,
-    savePermission,
     updateTable,
   };
 };

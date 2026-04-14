@@ -13,12 +13,10 @@
 import type { FormProps, Recordable, RenderCallbackParams } from '@bmos/components';
 import type { UploadProps } from 'ant-design-vue';
 import { getAgent, reqAgentCategoryTree, reqAgentFileUpload, reqAgentsCreate, reqAgentsUpdate } from '@/api';
-import DepartMent from '@/components/DepartMent/index.vue';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons-vue';
-import { BMModalForm, NormalModalForm } from '@bmos/components';
+import { BMModalForm } from '@bmos/components';
 import { t } from '@bmos/i18n';
-import { BMIcons } from '@bmos/icons';
-import { Button, message } from 'ant-design-vue';
+import { message } from 'ant-design-vue';
 import { OperationType } from '../type';
 
 defineOptions({
@@ -87,27 +85,6 @@ const customRequest: UploadProps['customRequest'] = (options: any) => {
       error.message && message.error(error.message);
       options.onError(error);
     });
-};
-const departMentRef = ref<InstanceType<typeof DepartMent>>();
-const departIconRender = (model: Recordable) => {
-  const style_icon = {
-    width: '16px',
-    height: '16px',
-    marginRight: '8px',
-    verticalAlign: 'sub',
-  };
-  if (!model.dept_ids || model.dept_ids?.length === 0) {
-    return h(BMIcons, {
-      icon: 'Depart',
-      style: style_icon,
-    });
-  }
-  else {
-    return h(BMIcons, {
-      icon: 'Success',
-      style: style_icon,
-    });
-  }
 };
 const formProps = reactive<FormProps>({
   schemas: [
@@ -214,59 +191,6 @@ const formProps = reactive<FormProps>({
       component: 'Input',
       label: t('应用描述'),
     },
-    {
-      field: 'dept_ids',
-      label: t('部门授权'),
-      required: true,
-      component: ({ formModel, formInstance }: RenderCallbackParams) => {
-        return (
-          <>
-            <NormalModalForm
-              title={t('部门授权')}
-              submit={async () => {
-                const ids = departMentRef.value?.getSelectKeys();
-                formModel.dept_ids = ids;
-                if (ids?.length) {
-                  formInstance.clearValidate(['dept_ids']);
-                }
-                return Promise.resolve();
-              }}
-            >
-              {{
-                default: () => (
-                  <DepartMent
-                    ref={departMentRef}
-                    checks={formModel.dept_ids}
-                    type={false}
-                    isAdd={true}
-                  >
-                  </DepartMent>
-                ),
-                trigger: () => (
-                  <Button icon={departIconRender(formModel)} class="depart-btn">
-                    {t('选择部门')}
-                  </Button>
-                ),
-              }}
-            </NormalModalForm>
-          </>
-        );
-      },
-      dynamicRules: ({ formModel }: RenderCallbackParams) => {
-        return [
-          {
-            required: true,
-            trigger: 'change',
-            validator: () => {
-              if (!formModel.dept_ids || formModel.dept_ids?.length === 0) {
-                return Promise.reject(t('请选择部门授权'));
-              }
-              return Promise.resolve();
-            },
-          },
-        ];
-      },
-    },
   ],
 });
 
@@ -284,7 +208,6 @@ const submit = async (formData: Recordable) => {
         name: formData.name,
         description: formData.description,
         icon_url: formData.icon_url,
-        dept_ids: formData.dept_ids,
       });
       emit('add', data);
     }
@@ -298,11 +221,3 @@ const submit = async (formData: Recordable) => {
   }
 };
 </script>
-
-<style scoped lang="less">
-.depart-btn {
-  display: inline-flex;
-  column-gap: 8px;
-  align-items: center;
-}
-</style>

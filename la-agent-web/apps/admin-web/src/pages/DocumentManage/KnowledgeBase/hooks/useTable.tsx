@@ -25,12 +25,6 @@ export const useTables = () => {
   const updateTable = () => {
     pageRef.value?.fetchData(0);
   };
-  const rowData = ref<Recordable>({});
-  // 数据权限modal
-  const permissionModalOpen = ref<boolean>(false);
-  const savePermission = async () => {
-    updateTable();
-  };
   // 启停
   const switchLoading = ref<boolean>(false);
   const changeStatus = async (record: any) => {
@@ -160,14 +154,6 @@ export const useTables = () => {
                 id: record.id,
               },
             });
-          },
-        },
-        {
-          label: t('数据权限'),
-          code: '230020002000008',
-          onClick: () => {
-            permissionModalOpen.value = true;
-            rowData.value = record;
           },
         },
         {
@@ -376,8 +362,5 @@ export const useTables = () => {
     treeModalTitle,
     treeModalFormProps,
     treeModalSubmit,
-    permissionModalOpen,
-    savePermission,
-    rowData,
   };
 };

@@ -54,13 +54,6 @@
     v-model:knowledge-base-test-open="knowledgeBaseTestModal"
   />
   <ChatModel v-model:open="llmTestModel" :query="llmTestQuery" />
-  <PermissionDeptModal
-    v-model:permission-open="permissionDeptModalOpen"
-    :save-immediate="false"
-    :is-add="true"
-    :type="false"
-    @ok="savePermissionDept"
-  />
 </template>
 
 <script lang="tsx" setup>
@@ -75,7 +68,6 @@ import { getAgent, reqAgentCategoryTree, reqAgentFileUpload, reqAgentsUpdate } f
 import BreadcrumbButton from '@/components/BreadcrumbButton/index.vue';
 import ChatModel from '@/components/ChatModel/index.vue';
 import Flow from '@/components/Flow';
-import PermissionDeptModal from '@/components/PermissionDept/index.vue';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons-vue';
 import {
   BMForm,
@@ -340,7 +332,6 @@ watch(
   },
 );
 
-const permissionDeptModalOpen = ref<boolean>(false);
 const saveFun = async (params: any) => {
   try {
     await reqAgentsUpdate(params);
@@ -366,29 +357,17 @@ const validateGetSaveData = async () => {
     }),
   };
 };
-const savePermissionDept = async (dept_ids: any[]) => {
-  try {
-    const saveData = await validateGetSaveData();
-    saveFun({
-      ...saveData,
-      dept_ids,
-    });
-  }
-  catch (error: any) {
-    error.message && message.error(error.message);
-  }
-};
 const save = async () => {
   try {
     const saveData = await validateGetSaveData();
-    if (optionStatus.value === OperationType.Add) {
-      permissionDeptModalOpen.value = true;
-    }
-    else {
+    if (optionStatus.value !== OperationType.Add) {
       saveFun({
         ...saveData,
         id: route.query.id,
       });
+    }
+    else {
+      saveFun(saveData);
     }
   }
   catch (_error: any) {

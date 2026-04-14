@@ -25,7 +25,6 @@
     @tree-action="handleTreeAction"
   >
     <template #tableHeaderToolbar0="{ treeNode }">
-      <PermissionModal v-model:permission-open="permissionModalOpen" :resource-id="rowData?.id" @ok="savePermission" />
       <Button v-hasAuth="230030001000004" type="primary" @click="() => handleAdd(treeNode)">
         {{ t('新增应用') }}
       </Button>
@@ -55,7 +54,6 @@
 
 <script setup lang="ts">
 import ChatModel from '@/components/ChatModel/index.vue';
-import PermissionModal from '@/components/PermissionDept/index.vue';
 import { usePermissionStore } from '@/stores/permission';
 import { BMModalForm, BMPageComponent, BMTableTitle } from '@bmos/components';
 import { t } from '@bmos/i18n';
@@ -73,8 +71,6 @@ const {
   treeData,
   pageRef,
   formFirstProps,
-  permissionModalOpen,
-  savePermission,
   rowData,
   actionList,
   handleTreeAction,

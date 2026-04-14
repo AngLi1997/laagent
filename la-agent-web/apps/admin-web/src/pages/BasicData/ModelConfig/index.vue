@@ -17,7 +17,6 @@
       </Button>
     </template>
   </BMPageComponent>
-  <PermissionModal v-model:permission-open="permissionModalOpen" :resource-id="rowData?.id" @ok="savePermission" />
   <ChatModel v-model:open="chatModelOpen" :query="chatQuery" />
 </template>
 
@@ -28,7 +27,6 @@ import { t } from '@bmos/i18n';
 import { Button } from 'ant-design-vue';
 import { reqAgentModelsQuery } from '@/api';
 import ChatModel from '@/components/ChatModel/index.vue';
-import PermissionModal from '@/components/PermissionDept/index.vue';
 import { useTable } from './hooks';
 import { OperationType } from './type';
 
@@ -38,9 +36,6 @@ const {
   pageRef,
   columnsFirst,
   formFirstProps,
-  rowData,
-  permissionModalOpen,
-  savePermission,
   chatModelOpen,
   chatQuery,
 } = useTable();

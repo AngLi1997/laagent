@@ -3,12 +3,15 @@
     v-if="menu.children && menu.children.length > 0"
     :key="menu.path"
     :title="customizeT(menu.meta?.code as any) || menu.meta?.title">
-    <template v-if="menu.meta?.icon" #icon>
-      <img :src="menu.meta?.icon" style="width: 20px; height: 20px" />
+    <template #icon>
+      <img :src="flowIcon" style="width: 20px; height: 20px" />
     </template>
     <BmosSubmenu v-for="item in menu.children" :key="item.path" :menu="item"></BmosSubmenu>
   </SubMenu>
   <MenuItem v-else :key="menu.path + ''">
+    <template #icon>
+      <img :src="flowIcon" style="width: 20px; height: 20px" />
+    </template>
     {{ customizeT(menu.meta?.code as any) || menu.meta?.title }}
   </MenuItem>
 </template>
@@ -28,6 +31,7 @@
   defineOptions({
     name: 'BmosSubmenu',
   });
+  const flowIcon = new URL('../../../../../../packages/icon/src/icon/FlowLLM.svg', import.meta.url).href;
 </script>
 
 <style scoped lang="less"></style>

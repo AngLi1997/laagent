@@ -1,11 +1,8 @@
 import type { FormProps, ModalFormInstance, Recordable, RenderCallbackParams } from '@bmos/components';
 import type { UploadProps } from 'ant-design-vue';
 import { reqAgentFileUpload, reqDocumentCategoryTree } from '@/api';
-import DepartMent from '@/components/DepartMent/index.vue';
 import { QuestionCircleOutlined, UploadOutlined } from '@ant-design/icons-vue';
-import { NormalModalForm } from '@bmos/components';
 import { t } from '@bmos/i18n';
-import { BMIcons } from '@bmos/icons';
 import { Button, message, Segmented, Tooltip } from 'ant-design-vue';
 
 /**
@@ -32,7 +29,6 @@ export const useForm = () => {
   const customRequest: UploadProps['customRequest'] = async (options: any) => {
     try {
       const formData = new FormData();
-      // formData.append('dept_ids', `\"${formModal.dept_ids}\"`);
       formData.append('file', options.file);
       const { data } = await reqAgentFileUpload(formData);
       setFormModels({ document_url: data });
@@ -44,29 +40,6 @@ export const useForm = () => {
         record: [],
       });
       error.message && message.error(error.message);
-    }
-  };
-
-  const departMentRef = ref<InstanceType<typeof DepartMent>>();
-
-  const departIconRender = (model: Recordable) => {
-    const style_icon = {
-      width: '16px',
-      height: '16px',
-      marginRight: '8px',
-      verticalAlign: 'sub',
-    };
-    if (!model.dept_ids || model.dept_ids?.length === 0) {
-      return h(BMIcons, {
-        icon: 'Depart',
-        style: style_icon,
-      });
-    }
-    else {
-      return h(BMIcons, {
-        icon: 'Success',
-        style: style_icon,
-      });
     }
   };
 
@@ -121,59 +94,6 @@ export const useForm = () => {
         componentProps: {
           maxlength: 30,
           showCount: true,
-        },
-      },
-      {
-        field: 'dept_ids',
-        label: t('部门授权'),
-        required: true,
-        colProps: {
-          span: 12,
-        },
-        component: ({ formModel }: RenderCallbackParams) => {
-          return (
-            <>
-              <NormalModalForm
-                title={t('部门授权')}
-                submit={async () => {
-                  const ids = departMentRef.value?.getSelectKeys();
-                  formModel.dept_ids = ids;
-                  return Promise.resolve();
-                }}
-              >
-                {{
-                  default: () => (
-                    <DepartMent
-                      ref={departMentRef}
-                      checks={formModel.dept_ids}
-                      type={false}
-                      isAdd={true}
-                    >
-                    </DepartMent>
-                  ),
-                  trigger: () => (
-                    <Button icon={departIconRender(formModel)} class="depart-btn">
-                      {t('选择部门')}
-                    </Button>
-                  ),
-                }}
-              </NormalModalForm>
-            </>
-          );
-        },
-        dynamicRules: ({ formModel }: RenderCallbackParams) => {
-          return [
-            {
-              required: true,
-              validator: () => {
-                if (!formModel.dept_ids || formModel.dept_ids?.length === 0) {
-                  return Promise.reject(t('请选择部门授权'));
-                }
-                return Promise.resolve();
-              },
-              trigger: 'change',
-            },
-          ];
         },
       },
       {

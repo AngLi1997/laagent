@@ -33,7 +33,6 @@
     @tree-action="handleTreeAction"
   >
     <template #tableHeaderToolbar0="{ treeNode }">
-      <PermissionModal v-model:permission-open="permissionModalOpen" :resource-id="rowData?.id" @ok="savePermission" />
       <Button v-hasAuth="230020001000004" type="primary" @click="() => openAddModel(treeNode)">
         {{ t('新增文档') }}
       </Button>
@@ -58,7 +57,6 @@
 <script lang="ts" setup>
 import type { DataRequestFn } from '@bmos/components';
 import { reqDocumentPage } from '@/api';
-import PermissionModal from '@/components/PermissionDept/index.vue';
 import { BMModalForm, BMPageComponent } from '@bmos/components';
 import { t } from '@bmos/i18n';
 import { ref, useTemplateRef } from 'vue';
@@ -86,9 +84,6 @@ const {
   updateTable,
   columnsFirst,
   formFirstProps,
-  permissionModalOpen,
-  rowData,
-  savePermission,
   treeData,
   actionList,
   handleTreeAction,

@@ -54,18 +54,6 @@
                       {{ t('密码设置') }}
                     </div>
                   </div>
-                  <div class="actionItem" @click="changePassWord('2')">
-                    <BMIcons icon="SignPassword" style="width: 16px; height: 16px; color: rgb(108, 115, 128)" />
-                    <div class="actionTitle">
-                      {{ t('签名密码设置') }}
-                    </div>
-                  </div>
-                  <div class="actionItem" @click="lockScreen">
-                    <BMIcons icon="ActionLock" style="width: 16px; height: 16px" />
-                    <div class="actionTitle">
-                      {{ t('锁屏') }}
-                    </div>
-                  </div>
                   <div class="actionItem" @click="languageChange">
                     <BMIcons icon="ActionLanguage" style="width: 16px; height: 16px" />
                     <div class="actionTitle">
@@ -91,8 +79,6 @@
 
     <!-- 提示修改密码弹窗 -->
     <changePassword ref="changePasswordRef" :type="type" />
-    <!-- 锁屏 -->
-    <lockScreenModal ref="lockScreenRef" :user-iofo="userInfo" :start="LOCK.start" />
     <!-- 切换语言弹窗 -->
     <changeLanguage ref="changeLanguageRef" @change-lang="changeLang" />
   </div>
@@ -105,13 +91,12 @@ import { BMIcons } from '@bmos/icons';
 import { sso } from '@bmos/messager';
 import { getLogoUrl } from '@bmos/utils';
 import { Divider, Dropdown, message, Modal } from 'ant-design-vue';
-import { createVNode, onMounted, onUnmounted, reactive, ref } from 'vue';
-import { getParameter, logout, reqAgentConfigsUserGet } from '@/api';
+import { createVNode, onMounted, ref } from 'vue';
+import { logout, reqAgentConfigsUserGet } from '@/api';
 import { updateLangResource } from '@/utils/handleLang';
 import changeLanguage from './action/changeLanguage.vue';
 import changePassword from './action/changePassword.vue';
-import lockScreenModal from './action/lockScreen.vue';
-import { clearLockStatus, getLockStatus, LockScreen, setLockStatus } from './lock';
+import { clearLockStatus } from './lock';
 
 const props = defineProps({
   bmosLogoBlue: {
@@ -122,44 +107,27 @@ const props = defineProps({
 
 const emit = defineEmits(['changeLang']);
 const { getUserInfo, navigatorLoginPage, setUserToken } = sso;
-const lockTime = ref(0); // 多久不操作会锁屏
 const changePasswordRef = ref();
 const type = ref<string>('1');
-const lockScreenRef = ref();
 const changeLanguageRef = ref();
-const shortcutKey = ref(); // 快捷键
-// 用户信息
 const userInfo = ref({ userName: '', loginName: '', userId: '', token: '' });
 
-const LOCK = reactive({
-  start: () => {},
-  pause: () => {},
-});
-
-// 密码设置/签名密码设置
 const changePassWord = (val: string) => {
   type.value = val;
   changePasswordRef.value.showModal();
 };
-  // 锁屏
-const lockScreen = () => {
-  lockScreenRef.value.showModal();
-  setLockStatus(userInfo.value?.userId);
-  LOCK.pause();
-};
 
-// 语言设置按钮
 const languageChange = () => {
   changeLanguageRef.value.showModal();
 };
-  // 语言弹框
+
 const changeLang = async (val: string) => {
   emit('changeLang', val);
   localStorage.setItem('LANG', val);
   await updateLangResource(val);
   window.location.reload();
 };
-  // 安全退出
+
 const loggingOut = () => {
   Modal.confirm({
     title: t('是否退出登录'),
@@ -186,36 +154,6 @@ const loggingOut = () => {
     },
   });
 };
-  // 获取锁屏时间
-const getLockScreenTime = async () => {
-  const res: any = await getParameter('platform.sys.web-lock-screen-time');
-  lockTime.value = res.data.value * 60 * 1000; // 多久不操作会锁屏 转成毫秒
-  // 如果设置的时长为0,则永不锁屏
-  if (lockTime.value === 0) {
-    return;
-  }
-  const lock = LockScreen(() => lockScreen(), lockTime.value);
-  Object.assign(LOCK, lock);
-  const status = getLockStatus(userInfo.value?.userId);
-  // 若锁屏状态为true
-  if (status) {
-    lockScreenRef.value.showModal();
-  }
-  else {
-    LOCK.start();
-  }
-};
-
-// 获取键盘锁屏快捷键
-const getLockScreenShortcutKey = async () => {
-  try {
-    const res: any = await getParameter('platform.sys.web-lock-screen-hotkey');
-    shortcutKey.value = JSON.parse(res.data.value); // ["Ctrl","Q"]
-  }
-  catch (error) {
-    console.log(error);
-  }
-};
 
 const avatarUrl = ref<string>('');
 const getAvatar = async () => {
@@ -229,35 +167,30 @@ const getAvatar = async () => {
   }
 };
 
+const normalizeUserInfo = (user: Record<string, any> = {}) => {
+  return {
+    userName: user.userName || user.username || user.realName || user.nickName || user.name || user.loginName || user.login_name || '',
+    loginName: user.loginName || user.login_name || user.account || '',
+    userId: user.userId || user.user_id || '',
+    token: user.token || '',
+  };
+};
+
 onMounted(async () => {
   try {
-    getLockScreenTime();
-    getLockScreenShortcutKey();
     getAvatar();
-    userInfo.value = getUserInfo();
+    userInfo.value = normalizeUserInfo(getUserInfo());
     const timer = setInterval(() => {
       const user = getUserInfo();
       if (user) {
-        userInfo.value = user;
+        userInfo.value = normalizeUserInfo(user);
         clearInterval(timer);
       }
     }, 100);
-
-    window.document.onkeydown = (e) => {
-      e.stopPropagation();
-      const firstKey = (e as any)[`${shortcutKey.value[0].toLowerCase()}Key`]; // 第一个键
-      const secondKey = shortcutKey.value[1].charCodeAt(0); // 第二个键
-      if (firstKey && e.key.charCodeAt(0) === secondKey) {
-        lockScreen();
-      }
-    };
   }
   catch (_error) {
-    //
+    // ignore
   }
-});
-onUnmounted(() => {
-  LOCK.pause();
 });
 </script>
 
@@ -371,7 +304,7 @@ onUnmounted(() => {
 // hover时的下拉菜单
 .hoverMenu {
   width: 240px;
-  height: 280px;
+  height: auto;
   background-color: #fff;
   border-radius: 4px;
   position: absolute;

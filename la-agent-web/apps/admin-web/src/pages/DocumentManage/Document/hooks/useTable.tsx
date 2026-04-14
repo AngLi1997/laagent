@@ -55,13 +55,6 @@ export const useTable = () => {
     }
   };
 
-  const rowData = ref<Recordable>({});
-  // 数据权限modal
-  const permissionModalOpen = ref<boolean>(false);
-  const savePermission = async () => {
-    updateTable();
-  };
-
   const columnsFirst: TableColumn[] = [
     {
       title: t('文档名称'),
@@ -140,14 +133,6 @@ export const useTable = () => {
           code: '230020001000006',
           onClick: () => {
             pushToDetail('view', record);
-          },
-        },
-        {
-          label: t('数据权限'),
-          code: '230020001000007',
-          onClick: () => {
-            permissionModalOpen.value = true;
-            rowData.value = record;
           },
         },
         {
@@ -361,9 +346,6 @@ export const useTable = () => {
     firstRowData,
     bindProcessModalOpen,
     checkedProcessIds,
-    permissionModalOpen,
-    rowData,
-    savePermission,
     treeData,
     treeSelectedKeys,
     actionList,
