@@ -1,0 +1,11 @@
+/* flex between */
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* fourth-level-text */
+.fourth-level-text {
+  color: var(--bmos-fourth-level-text-color);
+}

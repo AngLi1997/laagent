@@ -1,0 +1,17 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="&#229;&#164;&#180;&#229;&#131;&#143;2">
+<g clip-path="url(#clip0_1418_5060)">
+<circle id="Ellipse 377" cx="16" cy="16" r="16" fill="url(#paint0_linear_1418_5060)"/>
+<path id="Vector" d="M21.5002 16.6429L17.3267 23.8738H12.1967L13.4156 21.7601L13.4439 21.7433L13.4349 21.7305L16.3727 16.6429H21.5027H21.5002ZM8.8333 15.6838L12.1363 21.4052L11.1759 23.0715L7.87158 17.3501L8.8333 15.6838ZM24.537 16.6429L21.2327 22.3656H19.3106L22.6149 16.6442H24.537V16.6429ZM11.1514 8.89005L12.3034 10.8829V10.9151H12.3214L15.258 16.0001L12.693 20.4422L8.58772 13.3296L11.1514 8.89005ZM22.0183 10.9151L24.5833 15.3572H22.2806L22.2523 15.3418L22.2433 15.3572H16.3714L13.8064 10.9151H22.0183ZM18.8953 8.28577L19.857 9.95077H13.2497L12.288 8.28577H18.8953Z" fill="white"/>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_1418_5060" x1="14.4" y1="32" x2="22.8" y2="3.2" gradientUnits="userSpaceOnUse">
+<stop stop-color="#F2AD23"/>
+<stop offset="1" stop-color="#F6CE50"/>
+</linearGradient>
+<clipPath id="clip0_1418_5060">
+<rect width="32" height="32" rx="6" fill="white"/>
+</clipPath>
+</defs>
+</svg>

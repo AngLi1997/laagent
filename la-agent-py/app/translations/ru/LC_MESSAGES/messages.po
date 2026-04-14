@@ -1,0 +1,189 @@
+# Russian translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-05-09 14:45+0800\n"
+"PO-Revision-Date: 2025-05-09 14:45+0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: ru <LL@li.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: app/blueprints/agent_plueprint.py:42 app/blueprints/agent_plueprint.py:77
+msgid "category_exist"
+msgstr "Категория уже существует"
+
+#: app/blueprints/agent_plueprint.py:63
+#: app/blueprints/document_blueprint.py:96
+msgid "category_has_child"
+msgstr "В категории есть дочерние узлы, удаление невозможно"
+
+#: app/blueprints/agent_plueprint.py:67
+msgid "category_has_agent"
+msgstr "В категории есть незавершенные агенты"
+
+#: app/blueprints/agent_plueprint.py:147
+msgid "name_exist"
+msgstr "Имя уже существует"
+
+#: app/blueprints/agent_plueprint.py:170
+msgid "agent_name_exist"
+msgstr "Имя агента уже существует"
+
+#: app/blueprints/agent_plueprint.py:216
+msgid "agent_not_exist"
+msgstr "Агент не существует"
+
+#: app/blueprints/chat_blueprint.py:203
+msgid "llm_not_exist"
+msgstr "LLM не существует!"
+
+#: app/blueprints/conversation_blueprint.py:63
+#: app/blueprints/conversation_blueprint.py:101
+#: app/blueprints/conversation_blueprint.py:155
+msgid "chat_id_not_exist"
+msgstr "Чат с идентификатором %(id)s не существует"
+
+#: app/blueprints/conversation_blueprint.py:83
+msgid "chat_history_not_exist"
+msgstr "Нет истории чата для удаления"
+
+#: app/blueprints/conversation_blueprint.py:107
+msgid "chat_id_relevancy_agent_not_exist"
+msgstr ""
+"Чат с идентификатором %(id)s связан с агентом %(agent_id)s, который не "
+"существует"
+
+#: app/blueprints/document_blueprint.py:47
+#: app/blueprints/knowledge_blueprint.py:41
+msgid "parent_point_not_exist"
+msgstr "Родительский узел не существует"
+
+#: app/blueprints/document_blueprint.py:49
+#: app/blueprints/document_blueprint.py:110
+msgid "document_category_name_exist"
+msgstr "Имя категории документа уже существует"
+
+#: app/blueprints/document_blueprint.py:98
+msgid "category_has_document"
+msgstr "В категории есть документы, удаление невозможно"
+
+#: app/blueprints/document_blueprint.py:143
+#: app/blueprints/document_blueprint.py:356
+#: app/blueprints/document_blueprint.py:375
+msgid "document_not_exist"
+msgstr "Документ не существует"
+
+#: app/blueprints/document_blueprint.py:184
+#: app/blueprints/document_blueprint.py:432
+msgid "document_name_exist"
+msgstr "Имя документа уже существует"
+
+#: app/blueprints/document_blueprint.py:186
+#: app/blueprints/document_blueprint.py:430
+msgid "document_id_exist"
+msgstr "ID документа уже существует"
+
+#: app/blueprints/document_blueprint.py:231
+msgid "document_enabled"
+msgstr "Документ включен"
+
+#: app/blueprints/document_blueprint.py:242
+msgid "document_disabled"
+msgstr "Документ отключен"
+
+#: app/blueprints/document_blueprint.py:348
+msgid "document_category_not_exist"
+msgstr "Категория документа не существует"
+
+#: app/blueprints/document_blueprint.py:364
+msgid "document_chunk_not_exist"
+msgstr "Фрагмент документа не существует"
+
+#: app/blueprints/file_blueprint.py:17
+msgid "upload_file_not_exist"
+msgstr "Загруженный файл не обнаружен"
+
+#: app/blueprints/file_blueprint.py:22
+msgid "upload_file_type_error"
+msgstr "Неверный тип загружаемого файла"
+
+#: app/blueprints/file_blueprint.py:25
+msgid "upload_file_not_exceed_10"
+msgstr "Размер загружаемого файла не должен превышать 10 МБ"
+
+#: app/blueprints/knowledge_blueprint.py:43
+#: app/blueprints/knowledge_blueprint.py:80
+msgid "knowledge_category_name_exist"
+msgstr "Имя категории базы знаний уже существует"
+
+#: app/blueprints/knowledge_blueprint.py:66
+msgid "knowledge_category_has_child"
+msgstr "Категория базы знаний имеет подкатегории, удаление невозможно"
+
+#: app/blueprints/knowledge_blueprint.py:68
+msgid "category_has_knowledge"
+msgstr "В категории есть записи знаний, удаление невозможно"
+
+#: app/blueprints/knowledge_blueprint.py:94
+#: app/blueprints/knowledge_blueprint.py:121
+msgid "knowledge_id_exist"
+msgstr "ID базы знаний уже существует"
+
+#: app/blueprints/knowledge_blueprint.py:96
+#: app/blueprints/knowledge_blueprint.py:119
+msgid "knowledge_name_exist"
+msgstr "Имя базы знаний уже существует"
+
+#: app/blueprints/knowledge_blueprint.py:167
+msgid "knowledge_enabled"
+msgstr "База знаний включена"
+
+#: app/blueprints/knowledge_blueprint.py:207
+msgid "knowledge_disabled"
+msgstr "База знаний отключена"
+
+#: app/blueprints/knowledge_blueprint.py:239
+msgid "knowledge_category_not_exist"
+msgstr "Категория базы знаний не существует"
+
+#: app/blueprints/knowledge_blueprint.py:247
+#: app/blueprints/knowledge_blueprint.py:258
+msgid "knowledge_not_exist"
+msgstr "База знаний не существует"
+
+#: app/blueprints/sensitive_blueprint.py:24
+msgid "review_preset_answer_not_empty"
+msgstr "При прямом ответе предустановленный ответ не может быть пустым"
+
+#: app/blueprints/sensitive_blueprint.py:37
+#: app/blueprints/sensitive_blueprint.py:55
+#: app/blueprints/sensitive_blueprint.py:69
+#: app/blueprints/sensitive_blueprint.py:97
+msgid "review_not_exist"
+msgstr "Проверка содержимого не найдена"
+
+#: app/blueprints/tag_blueprint.py:101
+msgid "tag_no_update_mark"
+msgstr "Нет метки обновления для диалога"
+
+#: app/blueprints/tool_blueprint.py:40 app/blueprints/tool_blueprint.py:102
+msgid "tool_name_exist"
+msgstr "Имя инструмента уже существует"
+
+#: app/blueprints/tool_blueprint.py:100 app/blueprints/tool_blueprint.py:118
+msgid "tool_not_exist"
+msgstr "Инструмент не существует"
+
+#: app/blueprints/tool_blueprint.py:128
+msgid "tool_type_error"
+msgstr "Неверный тип инструмента"

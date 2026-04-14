@@ -1,0 +1,39 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "baseUrl": ".",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@bmos/*": ["../../packages/*/src"]
+    },
+    "resolveJsonModule": true,
+    // 集成 Node.js 库函数的类型声明
+    "types": ["node"],
+    "esModuleInterop": true
+  },
+  "include": [
+    "bmos/**/*.ts",
+    "bmos/**/*.d.ts",
+    "bmos/**/*.tsx",
+    "bmos/**/*.vue",
+    "download/**/*.ts",
+    "download/**/*.d.ts",
+    "download/**/*.tsx",
+    "download/**/*.vue",
+    "login/**/*.ts",
+    "login/**/*.d.ts",
+    "login/**/*.tsx",
+    "login/**/*.vue",
+    "components.d.ts",
+    "auto-imports.d.ts",
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue" // 这里需要包含 .vue 文件
+  ],
+  "exclude": ["node_modules"]
+}

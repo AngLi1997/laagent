@@ -1,0 +1,31 @@
+{
+  "name": "@bmos/icons",
+  "version": "0.0.0",
+  "description": "icon",
+  "keywords": [
+    "icons",
+    "svg"
+  ],
+  "license": "MIT",
+  "author": "lilei",
+  "exports": {
+    ".": {
+      "require": "./src/index.ts",
+      "module": "./src/index.ts"
+    }
+  },
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "types": "",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "test": "echo test"
+  },
+  "dependencies": {
+    "vite-plugin-svg-icons": "^2.0.1"
+  }
+}

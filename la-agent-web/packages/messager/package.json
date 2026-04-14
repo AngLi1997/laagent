@@ -1,0 +1,31 @@
+{
+  "name": "@bmos/messager",
+  "version": "0.0.0",
+  "description": "messager",
+  "keywords": [
+    "message",
+    "navigate"
+  ],
+  "license": "MIT",
+  "author": "Ansel",
+  "exports": {
+    ".": {
+      "require": "./src/index.ts",
+      "module": "./src/index.ts"
+    }
+  },
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "types": "",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "test": "echo test"
+  },
+  "dependencies": {
+    "@bmos/utils": "workspace:^"
+  }
+}

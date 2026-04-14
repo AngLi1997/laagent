@@ -1,0 +1,15 @@
+.header-tabs .ant-tabs-nav::before {
+  border-bottom: none;
+}
+
+.ant-tabs-tab:not(.ant-tabs-tab-active) .ant-tabs-tab-remove {
+  opacity: 0;
+}
+
+.ant-tabs-tab:hover .ant-tabs-tab-remove {
+  opacity: 1;
+}
+
+.common {
+  height: 100%;
+}

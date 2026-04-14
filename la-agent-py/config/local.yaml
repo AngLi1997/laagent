@@ -1,0 +1,43 @@
+server:
+  port: 60400
+  debug: false
+  secret_key: BMOS
+
+database:
+  uri: postgresql://bmos:bmos@postgres:5432/la-agent-py
+  echo: false
+  pool_size: 20
+
+redis:
+  url: redis://redis:6379/0
+
+auth:
+  allow_anonymity: false
+  token_ttl_seconds: 43200
+  ignore_url:
+    - '^/openapi/.*'
+    - '^/api/app/agent/auth/login$'
+    - '^/api/app/platform/user/login$'
+    - '^/api/app/agent/auth/health$'
+    - '^/api/app/platform/i18n/config$'
+
+storage:
+  minio:
+    enabled: false
+    endpoint: minio:9000
+    access_key: minioadmin
+    secret_key: minioadmin
+    bucket_name: bmos-agent
+
+features:
+  auto_create_tables: true
+  vector_store_enabled: false
+
+llm:
+  ollama_base_url: http://127.0.0.1:11434
+
+parameters:
+  platform.sys.web-lock-screen-time: '30'
+  platform.sys.web-lock-screen-hotkey: '["Ctrl","Q"]'
+  platform.sys.language: '{"中文":"zh_CN","English":"en_US","Русский":"ru_RU"}'
+  platform.sys.outside_url: '{}'

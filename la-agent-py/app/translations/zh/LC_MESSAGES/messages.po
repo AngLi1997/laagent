@@ -1,0 +1,187 @@
+# Chinese translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-05-09 14:45+0800\n"
+"PO-Revision-Date: 2025-05-09 14:45+0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: zh <LL@li.org>\n"
+"Language: zh\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: app/blueprints/agent_plueprint.py:42 app/blueprints/agent_plueprint.py:77
+msgid "category_exist"
+msgstr "该分类已存在"
+
+#: app/blueprints/agent_plueprint.py:63
+#: app/blueprints/document_blueprint.py:96
+msgid "category_has_child"
+msgstr "分类下有子节点,不能删除"
+
+#: app/blueprints/agent_plueprint.py:67
+msgid "category_has_agent"
+msgstr "分类下有未删除的智能体"
+
+#: app/blueprints/agent_plueprint.py:147
+msgid "name_exist"
+msgstr "名称已存在"
+
+#: app/blueprints/agent_plueprint.py:170
+msgid "agent_name_exist"
+msgstr "智能体名称已存在"
+
+#: app/blueprints/agent_plueprint.py:216
+msgid "agent_not_exist"
+msgstr "智能体不存在"
+
+#: app/blueprints/chat_blueprint.py:203
+msgid "llm_not_exist"
+msgstr "该大模型不存在！"
+
+#: app/blueprints/conversation_blueprint.py:63
+#: app/blueprints/conversation_blueprint.py:101
+#: app/blueprints/conversation_blueprint.py:155
+msgid "chat_id_not_exist"
+msgstr "对话%(id)s不存在"
+
+#: app/blueprints/conversation_blueprint.py:83
+msgid "chat_history_not_exist"
+msgstr "暂无待删除对话历史"
+
+#: app/blueprints/conversation_blueprint.py:107
+msgid "chat_id_relevancy_agent_not_exist"
+msgstr "对话%(id)s关联的智能体%(agent_id)s不存在"
+
+#: app/blueprints/document_blueprint.py:47
+#: app/blueprints/knowledge_blueprint.py:41
+msgid "parent_point_not_exist"
+msgstr "父级节点不存在"
+
+#: app/blueprints/document_blueprint.py:49
+#: app/blueprints/document_blueprint.py:110
+msgid "document_category_name_exist"
+msgstr "文档分类名称已存在"
+
+#: app/blueprints/document_blueprint.py:98
+msgid "category_has_document"
+msgstr "分类下存在文档，不能删除"
+
+#: app/blueprints/document_blueprint.py:143
+#: app/blueprints/document_blueprint.py:356
+#: app/blueprints/document_blueprint.py:375
+msgid "document_not_exist"
+msgstr "文档不存在"
+
+#: app/blueprints/document_blueprint.py:184
+#: app/blueprints/document_blueprint.py:432
+msgid "document_name_exist"
+msgstr "文档名称已存在"
+
+#: app/blueprints/document_blueprint.py:186
+#: app/blueprints/document_blueprint.py:430
+msgid "document_id_exist"
+msgstr "文档序列号已存在"
+
+#: app/blueprints/document_blueprint.py:231
+msgid "document_enabled"
+msgstr "文档已启用"
+
+#: app/blueprints/document_blueprint.py:242
+msgid "document_disabled"
+msgstr "文档已停用"
+
+#: app/blueprints/document_blueprint.py:348
+msgid "document_category_not_exist"
+msgstr "文档分类不存在"
+
+#: app/blueprints/document_blueprint.py:364
+msgid "document_chunk_not_exist"
+msgstr "文档分片不存在"
+
+#: app/blueprints/file_blueprint.py:17
+msgid "upload_file_not_exist"
+msgstr "未检测到上传文件"
+
+#: app/blueprints/file_blueprint.py:22
+msgid "upload_file_type_error"
+msgstr "上传文件类型错误"
+
+#: app/blueprints/file_blueprint.py:25
+msgid "upload_file_not_exceed_10"
+msgstr "上传文件大小不超过10M"
+
+#: app/blueprints/knowledge_blueprint.py:43
+#: app/blueprints/knowledge_blueprint.py:80
+msgid "knowledge_category_name_exist"
+msgstr "知识库分类名称已存在"
+
+#: app/blueprints/knowledge_blueprint.py:66
+msgid "knowledge_category_has_child"
+msgstr "知识库分类有子分类，不能删除"
+
+#: app/blueprints/knowledge_blueprint.py:68
+msgid "category_has_knowledge"
+msgstr "分类下存在知识库，不能删除"
+
+#: app/blueprints/knowledge_blueprint.py:94
+#: app/blueprints/knowledge_blueprint.py:121
+msgid "knowledge_id_exist"
+msgstr "知识库编号已存在"
+
+#: app/blueprints/knowledge_blueprint.py:96
+#: app/blueprints/knowledge_blueprint.py:119
+msgid "knowledge_name_exist"
+msgstr "知识库名称已存在"
+
+#: app/blueprints/knowledge_blueprint.py:167
+msgid "knowledge_enabled"
+msgstr "知识库已启用"
+
+#: app/blueprints/knowledge_blueprint.py:207
+msgid "knowledge_disabled"
+msgstr "知识库已停用"
+
+#: app/blueprints/knowledge_blueprint.py:239
+msgid "knowledge_category_not_exist"
+msgstr "知识库分类不存在"
+
+#: app/blueprints/knowledge_blueprint.py:247
+#: app/blueprints/knowledge_blueprint.py:258
+msgid "knowledge_not_exist"
+msgstr "知识库不存在"
+
+#: app/blueprints/sensitive_blueprint.py:24
+msgid "review_preset_answer_not_empty"
+msgstr "直接回答时预设答案不能为空"
+
+#: app/blueprints/sensitive_blueprint.py:37
+#: app/blueprints/sensitive_blueprint.py:55
+#: app/blueprints/sensitive_blueprint.py:69
+#: app/blueprints/sensitive_blueprint.py:97
+msgid "review_not_exist"
+msgstr "内容审查不存在"
+
+#: app/blueprints/tag_blueprint.py:101
+msgid "tag_no_update_mark"
+msgstr "对话无更新的标记"
+
+#: app/blueprints/tool_blueprint.py:40 app/blueprints/tool_blueprint.py:102
+msgid "tool_name_exist"
+msgstr "工具名称已存在"
+
+#: app/blueprints/tool_blueprint.py:100 app/blueprints/tool_blueprint.py:118
+msgid "tool_not_exist"
+msgstr "工具不存在"
+
+#: app/blueprints/tool_blueprint.py:128
+msgid "tool_type_error"
+msgstr "错误的工具类型"

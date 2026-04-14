@@ -1,0 +1,188 @@
+# English translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-05-09 14:45+0800\n"
+"PO-Revision-Date: 2025-05-09 14:45+0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: en <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: app/blueprints/agent_plueprint.py:42 app/blueprints/agent_plueprint.py:77
+msgid "category_exist"
+msgstr "The category already exists"
+
+#: app/blueprints/agent_plueprint.py:63
+#: app/blueprints/document_blueprint.py:96
+msgid "category_has_child"
+msgstr "The category has child nodes and cannot be deleted"
+
+#: app/blueprints/agent_plueprint.py:67
+msgid "category_has_agent"
+msgstr "There are undeleted agents under the category"
+
+#: app/blueprints/agent_plueprint.py:147
+msgid "name_exist"
+msgstr "Name already exists"
+
+#: app/blueprints/agent_plueprint.py:170
+msgid "agent_name_exist"
+msgstr "Agent name already exists"
+
+#: app/blueprints/agent_plueprint.py:216
+msgid "agent_not_exist"
+msgstr "Agent does not exist"
+
+#: app/blueprints/chat_blueprint.py:203
+msgid "llm_not_exist"
+msgstr "The LLM does not exist!"
+
+#: app/blueprints/conversation_blueprint.py:63
+#: app/blueprints/conversation_blueprint.py:101
+#: app/blueprints/conversation_blueprint.py:155
+msgid "chat_id_not_exist"
+msgstr "Chat %(id)s does not exist"
+
+#: app/blueprints/conversation_blueprint.py:83
+msgid "chat_history_not_exist"
+msgstr "No chat history to delete"
+
+#: app/blueprints/conversation_blueprint.py:107
+msgid "chat_id_relevancy_agent_not_exist"
+msgstr ""
+"Chat %(id)s is associated with agent %(agent_id)s which does not exist"
+
+#: app/blueprints/document_blueprint.py:47
+#: app/blueprints/knowledge_blueprint.py:41
+msgid "parent_point_not_exist"
+msgstr "Parent node does not exist"
+
+#: app/blueprints/document_blueprint.py:49
+#: app/blueprints/document_blueprint.py:110
+msgid "document_category_name_exist"
+msgstr "Document category name already exists"
+
+#: app/blueprints/document_blueprint.py:98
+msgid "category_has_document"
+msgstr "There are documents under this category, deletion not allowed"
+
+#: app/blueprints/document_blueprint.py:143
+#: app/blueprints/document_blueprint.py:356
+#: app/blueprints/document_blueprint.py:375
+msgid "document_not_exist"
+msgstr "Document does not exist"
+
+#: app/blueprints/document_blueprint.py:184
+#: app/blueprints/document_blueprint.py:432
+msgid "document_name_exist"
+msgstr "Document name already exists"
+
+#: app/blueprints/document_blueprint.py:186
+#: app/blueprints/document_blueprint.py:430
+msgid "document_id_exist"
+msgstr "Document ID already exists"
+
+#: app/blueprints/document_blueprint.py:231
+msgid "document_enabled"
+msgstr "Document is enabled"
+
+#: app/blueprints/document_blueprint.py:242
+msgid "document_disabled"
+msgstr "Document is disabled"
+
+#: app/blueprints/document_blueprint.py:348
+msgid "document_category_not_exist"
+msgstr "Document category does not exist"
+
+#: app/blueprints/document_blueprint.py:364
+msgid "document_chunk_not_exist"
+msgstr "Document chunk does not exist"
+
+#: app/blueprints/file_blueprint.py:17
+msgid "upload_file_not_exist"
+msgstr "No uploaded file detected"
+
+#: app/blueprints/file_blueprint.py:22
+msgid "upload_file_type_error"
+msgstr "Upload file type is invalid"
+
+#: app/blueprints/file_blueprint.py:25
+msgid "upload_file_not_exceed_10"
+msgstr "Uploaded file size must not exceed 10MB"
+
+#: app/blueprints/knowledge_blueprint.py:43
+#: app/blueprints/knowledge_blueprint.py:80
+msgid "knowledge_category_name_exist"
+msgstr "Knowledge base category name already exists"
+
+#: app/blueprints/knowledge_blueprint.py:66
+msgid "knowledge_category_has_child"
+msgstr "Knowledge base category has subcategories and cannot be deleted"
+
+#: app/blueprints/knowledge_blueprint.py:68
+msgid "category_has_knowledge"
+msgstr "There are knowledge entries under this category, deletion not allowed"
+
+#: app/blueprints/knowledge_blueprint.py:94
+#: app/blueprints/knowledge_blueprint.py:121
+msgid "knowledge_id_exist"
+msgstr "Knowledge ID already exists"
+
+#: app/blueprints/knowledge_blueprint.py:96
+#: app/blueprints/knowledge_blueprint.py:119
+msgid "knowledge_name_exist"
+msgstr "Knowledge name already exists"
+
+#: app/blueprints/knowledge_blueprint.py:167
+msgid "knowledge_enabled"
+msgstr "Knowledge base is enabled"
+
+#: app/blueprints/knowledge_blueprint.py:207
+msgid "knowledge_disabled"
+msgstr "Knowledge base is disabled"
+
+#: app/blueprints/knowledge_blueprint.py:239
+msgid "knowledge_category_not_exist"
+msgstr "Knowledge base category does not exist"
+
+#: app/blueprints/knowledge_blueprint.py:247
+#: app/blueprints/knowledge_blueprint.py:258
+msgid "knowledge_not_exist"
+msgstr "Knowledge base does not exist"
+
+#: app/blueprints/sensitive_blueprint.py:24
+msgid "review_preset_answer_not_empty"
+msgstr "Preset answer cannot be empty when answering directly"
+
+#: app/blueprints/sensitive_blueprint.py:37
+#: app/blueprints/sensitive_blueprint.py:55
+#: app/blueprints/sensitive_blueprint.py:69
+#: app/blueprints/sensitive_blueprint.py:97
+msgid "review_not_exist"
+msgstr "Content review does not exist"
+
+#: app/blueprints/tag_blueprint.py:101
+msgid "tag_no_update_mark"
+msgstr "No update tag for conversation"
+
+#: app/blueprints/tool_blueprint.py:40 app/blueprints/tool_blueprint.py:102
+msgid "tool_name_exist"
+msgstr "Tool name already exists"
+
+#: app/blueprints/tool_blueprint.py:100 app/blueprints/tool_blueprint.py:118
+msgid "tool_not_exist"
+msgstr "Tool does not exist"
+
+#: app/blueprints/tool_blueprint.py:128
+msgid "tool_type_error"
+msgstr "Invalid tool type"

@@ -1,0 +1,65 @@
+2026-04-14 15:18:39.116 | INFO     | config:<module>:155 - [启动参数]配置文件: /Users/liang/code/agent/la-agent-py/config/local.yaml
+2026-04-14 15:18:39.117 | INFO     | config:<module>:156 - [启动参数]端口号: 60400
+2026-04-14 15:18:39.117 | INFO     | config:<module>:157 - [启动参数]数据库: postgresql://root:BH89757%40@127.0.0.1:5432/la-agent-py
+2026-04-14 15:18:39.117 | INFO     | config:<module>:158 - [启动参数]Redis: redis://:BH89757%40@127.0.0.1:6379/0
+/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (7.4.3)/charset_normalizer (3.4.7) doesn't match a supported version!
+  warnings.warn(
+2026-04-14 15:18:43.714 | INFO     | app.app_init:__init__:39 - 加载通用配置成功
+2026-04-14 15:18:43.714 | INFO     | app.app_init:__init__:43 - 设置跨域成功
+2026-04-14 15:18:43.740 | INFO     | app.app_init:__init__:48 - 数据库初始化成功
+2026-04-14 15:18:43.740 | INFO     | app.app_init:__init__:52 - redis初始化成功
+2026-04-14 15:18:43.740 | INFO     | app.app_init:__init__:66 - minio已禁用，使用本地降级客户端
+2026-04-14 15:18:43.741 | INFO     | app.app_init:__init__:76 - 向量存储已禁用
+2026-04-14 15:18:45.229 | INFO     | app.sensitive_word.sensitive_base:load_sensitive_base:53 - 已加载【反动词库】词库，共176个敏感词
+2026-04-14 15:18:45.230 | INFO     | app.sensitive_word.sensitive_base:load_sensitive_base:53 - 已加载【基本词库】词库，共470个敏感词
+2026-04-14 15:18:45.230 | INFO     | app.sensitive_word.sensitive_base:load_sensitive_base:53 - 已加载【色情词库】词库，共520个敏感词
+2026-04-14 15:18:45.230 | INFO     | app.sensitive_word.sensitive_base:load_sensitive_base:53 - 已加载【贪腐词库】词库，共59个敏感词
+2026-04-14 15:18:45.230 | INFO     | app.sensitive_word.sensitive_base:load_sensitive_base:53 - 已加载【民生词库】词库，共105个敏感词
+2026-04-14 15:18:45.230 | INFO     | app.sensitive_word.sensitive_base:load_sensitive_base:59 - 敏感词库加载完成，共 5 个分类，1330 个敏感词
+/Users/liang/code/agent/la-agent-py/app/blueprints/chat_blueprint.py:53: LangChainDeprecationWarning: The class `TavilySearchResults` was deprecated in LangChain 0.3.25 and will be removed in 1.0. An updated version of the class exists in the :class:`~langchain-tavily package and should be used instead. To use it run `pip install -U :class:`~langchain-tavily` and import as `from :class:`~langchain_tavily import TavilySearch``.
+  search = TavilySearchResults(max_results=4, exclude_domains=["https://m.bendibao.com"])
+2026-04-14 15:18:45.346 | INFO     | app.blueprints.register_all:register_all_blueprints:56 - blueprint初始化成功
+2026-04-14 15:18:45.346 | INFO     | app.exception.exception_handler:init_exception_handler:58 - 异常捕获器初始化成功
+2026-04-14 15:18:45.392 | INFO     | app.app_init:<module>:105 - 数据库表与初始账号检查完成
+2026-04-14 15:18:45.392 | INFO     | app.sensitive_word.sensitive_word_context:load_sensitive_words:19 - 正在加载敏感词...
+2026-04-14 15:18:45.395 | INFO     | app.sensitive_word.sensitive_word_context:load_sensitive_words:32 - 未找到启用的敏感词
+/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/jieba/__init__.py:44: SyntaxWarning: invalid escape sequence '\.'
+  re_han_default = re.compile("([\u4E00-\u9FD5a-zA-Z0-9+#&\._%\-]+)", re.U)
+/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/jieba/__init__.py:46: SyntaxWarning: invalid escape sequence '\s'
+  re_skip_default = re.compile("(\r\n|\s)", re.U)
+/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/jieba/finalseg/__init__.py:78: SyntaxWarning: invalid escape sequence '\.'
+  re_skip = re.compile("([a-zA-Z0-9]+(?:\.\d+)?%?)")
+/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/jieba/posseg/__init__.py:16: SyntaxWarning: invalid escape sequence '\.'
+  re_skip_detail = re.compile("([\.0-9]+|[a-zA-Z0-9]+)")
+/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/jieba/posseg/__init__.py:17: SyntaxWarning: invalid escape sequence '\.'
+  re_han_internal = re.compile("([\u4E00-\u9FD5a-zA-Z0-9+#&\._]+)")
+/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/jieba/posseg/__init__.py:18: SyntaxWarning: invalid escape sequence '\s'
+  re_skip_internal = re.compile("(\r\n|\s)")
+/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/jieba/posseg/__init__.py:21: SyntaxWarning: invalid escape sequence '\.'
+  re_num = re.compile("[\.0-9]+")
+ 
+ -------------- celery@liangdeMac-mini.local v5.5.3 (immunity)
+--- ***** ----- 
+-- ******* ---- macOS-26.3.1-arm64-arm-64bit 2026-04-14 15:18:48
+- *** --- * --- 
+- ** ---------- [config]
+- ** ---------- .> app:         celery:0x109a07080
+- ** ---------- .> transport:   redis://:**@127.0.0.1:6379/0
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 8 (solo)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . app.celery.celery_tasks.extract_keywords_task
+  . app.celery.celery_tasks.to_vector_task
+
+[2026-04-14 15:18:48,142: INFO/MainProcess] Connected to redis://:**@127.0.0.1:6379/0
+[2026-04-14 15:18:48,145: INFO/MainProcess] mingle: searching for neighbors
+[2026-04-14 15:18:49,155: INFO/MainProcess] mingle: all alone
+[2026-04-14 15:18:49,186: INFO/MainProcess] celery@liangdeMac-mini.local ready.
+/private/tmp/uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 16 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

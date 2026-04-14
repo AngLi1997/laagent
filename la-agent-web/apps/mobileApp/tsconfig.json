@@ -1,0 +1,24 @@
+{
+  "extends": "@react-native/typescript-config/tsconfig.json",
+  "compilerOptions": {
+    "target": "esnext",
+    "jsx": "react-native",
+    "baseUrl": ".",
+    "module": "es2020",
+    "paths": {
+      "@/*": ["src/*"], // 将 @/xxx 映射到 src/xxx
+      "@bmos/*": ["../../packages/*/src"]
+    },
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+  },
+  "include": [ // 可选，明确指定包含哪些文件/文件夹，通常用于更精细的控制
+    "src/*",   // 例如，只包含 src 目录下的文件
+    "svg.d.ts",
+    "antd-rn-fix.d.ts",
+    "App.tsx"
+  ],
+  "exclude": ["android", "ios", "node_modules"]
+}

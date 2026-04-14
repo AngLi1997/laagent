@@ -1,0 +1,31 @@
+{
+  "name": "@bmos/i18n",
+  "version": "0.0.0",
+  "description": "i18n",
+  "author": "lilei",
+  "license": "MIT",
+  "keywords": [
+    "i18n",
+    "i18next"
+  ],
+  "exports": {
+    ".": {
+      "require": "./src/index.ts",
+      "module": "./src/index.ts"
+    }
+  },
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "types": "",
+  "files": [
+    "README.md",
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "test": "echo test"
+  },
+  "dependencies": {
+    "i18next": "^24.2.3"
+  }
+}

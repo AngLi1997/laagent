@@ -1,0 +1,367 @@
+button:focus,
+button:focus-visible {
+  outline: none;
+}
+
+.ant-btn-sm {
+  height: 32px;
+  padding: 4px 20px;
+}
+
+.ant-select-single.ant-select-sm {
+  height: 32px;
+  padding: 4px 7px;
+}
+
+.ant-bubble {
+  &.ant-bubble-start {
+    .ant-bubble-content {
+      flex: 1;
+      margin-right: 40px;
+    }
+  }
+  .ant-bubble-content-wrapper {
+    margin-left: 40px;
+  }
+  .ant-bubble-content {
+    // max-width: 90%;
+    font-size: 16px;
+  }
+  .ant-bubble-footer {
+    margin-top: 4px;
+  }
+}
+// 按钮
+.ant-btn-primary {
+  &.ant-btn-dangerous {
+    box-shadow: 0 2px 0 rgba(255, 44, 2, 0.06);
+  }
+}
+
+.ant-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// 数字输入框
+.ant-input-number-input[disabled] {
+  color: var(--bmos-fifth-level-text-color);
+}
+
+// 文本框
+textarea {
+  height: 64px;
+}
+
+// 下拉菜单里的文字 hover
+.ant-dropdown-menu-item:hover .ant-dropdown-menu-title-content {
+  color: var(--bmos-primary-color);
+}
+
+// 下拉菜单danger hover
+.ant-dropdown-menu-item.ant-dropdown-menu-item-danger:hover .ant-dropdown-menu-title-content {
+  color: var(--bmos-danger-color);
+}
+
+.ant-dropdown
+  .ant-dropdown-menu
+  .ant-dropdown-menu-item.ant-dropdown-menu-item-danger:not(.ant-dropdown-menu-item-disabled):hover {
+  background-color: #f5f5f5;
+}
+
+// select 下拉的 item 高度
+.ant-select-dropdown {
+  .ant-select-item-option {
+    padding: 5px 12px;
+    min-height: 34px;
+  }
+
+  .ant-select-tree {
+    .ant-select-tree-node-content-wrapper {
+      .ant-select-tree-title {
+        white-space: normal;
+        word-break: break-all;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+// picker
+.ant-picker {
+  font-size: 20px;
+}
+
+// tree-select
+.ant-tree-select-dropdown {
+  .ant-select-tree {
+    .ant-select-tree-treenode {
+      width: 100%;
+
+      &[aria-selected='false'] .ant-select-tree-node-content-wrapper {
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+// bmos-wrap-select
+.bmos-wrap-select {
+  &.ant-select-single:not(.mes-select-customize-input) {
+    .ant-select-selector {
+      height: auto;
+    }
+  }
+
+  &.ant-select-single {
+    .ant-select-selector {
+      .ant-select-selection-item {
+        line-height: 20px;
+        white-space: wrap;
+        display: inline-flex;
+        align-items: center;
+      }
+    }
+  }
+}
+
+// 搜索框 icon
+.ant-input-group-wrapper .ant-btn-icon-only {
+  font-size: 18px;
+}
+
+// 上传组件
+.ant-upload-wrapper {
+  .ant-upload-list {
+    .ant-upload-list-item {
+      height: 28px;
+      padding-left: 8px;
+    }
+  }
+}
+
+// 分页组件
+.ant-pagination {
+  .ant-pagination-item {
+    border: 1px solid var(--bmos-first-level-border-color);
+  }
+
+  .ant-pagination-item-active {
+    border: 1px solid #1677ff;
+  }
+
+  .ant-pagination-options-quick-jumper {
+    margin-inline-start: 12px;
+  }
+
+  .ant-pagination-options {
+    margin-inline-start: 12px;
+  }
+
+  .ant-pagination-total-text {
+    margin-inline-end: 12px;
+  }
+
+  .ant-pagination-options-size-changer {
+    .ant-select-selector {
+      height: 30px;
+      border-radius: 2px;
+
+      .ant-select-selection-item {
+        line-height: 27px;
+      }
+    }
+  }
+}
+
+// 标签页
+.ant-tabs-top .ant-tabs-tab {
+  height: 40px;
+  font-size: 16px;
+}
+
+.ant-tabs-left {
+  > .ant-tabs-nav {
+    .ant-tabs-tab + .ant-tabs-tab {
+      margin: 12px 0 0 0;
+    }
+  }
+
+  .ant-tabs-tab {
+    height: 36px;
+    font-size: 14px;
+  }
+}
+
+.ant-tabs-card .ant-tabs-tab {
+  height: 36px;
+  font-size: 14px;
+}
+
+// 分段选择器
+.ant-segmented {
+  padding: 4px;
+
+  &.ant-segmented-lg .ant-segmented-item {
+    border-radius: 300px;
+    margin: 0 10px;
+  }
+
+  .ant-segmented-item-label {
+    padding: 0;
+    white-space: none;
+  }
+
+  &.ant-segmented-item-selected {
+    color: var(--bmos-primary-color);
+
+    .ant-segmented-item-label {
+      color: var(--bmos-primary-color);
+    }
+  }
+
+  .ant-segmented-item {
+    border-radius: 3px;
+    margin: 0 2px;
+  }
+}
+
+// 提示信息
+.ant-message-notice .ant-message-notice-content {
+  padding: 8px 20px;
+  border-radius: 4px;
+}
+
+// 通知提醒框
+.ant-notification {
+  color: var(--bmos-third-level-text-color);
+
+  .ant-notification-notice {
+    padding: 20px 16px;
+    width: 360px;
+    border-radius: 4px;
+
+    .ant-notification-close-icon {
+      font-size: 16px;
+    }
+
+    .ant-notification-notice-close {
+      inset-inline-end: 16px;
+    }
+
+    .ant-notification-notice-with-icon .ant-notification-notice-description {
+      margin-inline-end: 32px;
+    }
+
+    .ant-notification-notice-icon {
+      font-size: 20px;
+      margin-top: 2px;
+    }
+  }
+}
+
+// 对话框
+.ant-modal-confirm {
+  .ant-modal-confirm-btns {
+    margin-top: 20px;
+  }
+
+  .ant-modal-confirm-body {
+    > .anticon {
+      font-size: 20px;
+      margin-inline-end: 16px;
+    }
+
+    > .anticon + .ant-modal-confirm-title + .ant-modal-confirm-content {
+      margin-inline-start: 36px;
+      margin-inline-end: 36px;
+    }
+
+    .ant-modal-confirm-title {
+      font-weight: 400;
+    }
+
+    .ant-modal-confirm-content {
+      color: var(--bmos-third-level-text-color);
+    }
+  }
+}
+
+.ant-modal .ant-modal-content {
+  padding: 16px;
+}
+
+// 抽屉
+.ant-drawer {
+  .ant-drawer-header {
+    padding: 12px 16px 10px 16px;
+  }
+
+  .ant-drawer-body {
+    padding: var(--bmos-padding-small);
+  }
+}
+
+// 警告提示
+.ant-alert {
+  border-radius: 4px;
+
+  &.ant-alert-info {
+    border: none;
+    background-color: var(--bmos-primary-color-background);
+  }
+}
+
+// 加载
+.ant-spin-nested-loading {
+  height: 100%;
+
+  .ant-spin-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+// 气泡卡片
+.ant-popover {
+  .ant-popover-content {
+    .ant-popover-inner {
+      padding: 0;
+      width: 420px;
+
+      .ant-popover-title {
+        padding-left: 16px;
+        padding-top: 16px;
+        padding-bottom: 4px;
+        border-bottom: 1px solid var(--bmos-first-level-border-color);
+      }
+
+      .ant-popover-inner-content {
+        padding: 16px;
+      }
+    }
+  }
+}
+
+.ant-tag-checkable {
+  padding: 6px 12px;
+  background-color: var(--bmos-tab-checkable-color-background);
+  color: var(--bmos-tab-checkable-color);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  &-checked {
+    background-color: var(--bmos-primary-color-background);
+    color: var(--bmos-primary-color);
+    &:hover {
+      background-color: var(--bmos-primary-color-background);
+      color: var(--bmos-primary-color);
+    }
+  }
+}

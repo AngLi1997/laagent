@@ -1,0 +1,616 @@
+2026-04-14 15:18:39.004 | INFO     | config:<module>:155 - [启动参数]配置文件: /Users/liang/code/agent/la-agent-py/config/local.yaml
+2026-04-14 15:18:39.005 | INFO     | config:<module>:156 - [启动参数]端口号: 60400
+2026-04-14 15:18:39.005 | INFO     | config:<module>:157 - [启动参数]数据库: postgresql://root:BH89757%40@127.0.0.1:5432/la-agent-py
+2026-04-14 15:18:39.005 | INFO     | config:<module>:158 - [启动参数]Redis: redis://:BH89757%40@127.0.0.1:6379/0
+/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (7.4.3)/charset_normalizer (3.4.7) doesn't match a supported version!
+  warnings.warn(
+2026-04-14 15:18:43.714 | INFO     | app.app_init:__init__:39 - 加载通用配置成功
+2026-04-14 15:18:43.714 | INFO     | app.app_init:__init__:43 - 设置跨域成功
+2026-04-14 15:18:43.740 | INFO     | app.app_init:__init__:48 - 数据库初始化成功
+2026-04-14 15:18:43.741 | INFO     | app.app_init:__init__:52 - redis初始化成功
+2026-04-14 15:18:43.741 | INFO     | app.app_init:__init__:66 - minio已禁用，使用本地降级客户端
+2026-04-14 15:18:43.741 | INFO     | app.app_init:__init__:76 - 向量存储已禁用
+2026-04-14 15:18:45.151 | INFO     | app.sensitive_word.sensitive_base:load_sensitive_base:53 - 已加载【反动词库】词库，共176个敏感词
+2026-04-14 15:18:45.151 | INFO     | app.sensitive_word.sensitive_base:load_sensitive_base:53 - 已加载【基本词库】词库，共470个敏感词
+2026-04-14 15:18:45.152 | INFO     | app.sensitive_word.sensitive_base:load_sensitive_base:53 - 已加载【色情词库】词库，共520个敏感词
+2026-04-14 15:18:45.152 | INFO     | app.sensitive_word.sensitive_base:load_sensitive_base:53 - 已加载【贪腐词库】词库，共59个敏感词
+2026-04-14 15:18:45.152 | INFO     | app.sensitive_word.sensitive_base:load_sensitive_base:53 - 已加载【民生词库】词库，共105个敏感词
+2026-04-14 15:18:45.152 | INFO     | app.sensitive_word.sensitive_base:load_sensitive_base:59 - 敏感词库加载完成，共 5 个分类，1330 个敏感词
+/Users/liang/code/agent/la-agent-py/app/blueprints/chat_blueprint.py:53: LangChainDeprecationWarning: The class `TavilySearchResults` was deprecated in LangChain 0.3.25 and will be removed in 1.0. An updated version of the class exists in the :class:`~langchain-tavily package and should be used instead. To use it run `pip install -U :class:`~langchain-tavily` and import as `from :class:`~langchain_tavily import TavilySearch``.
+  search = TavilySearchResults(max_results=4, exclude_domains=["https://m.bendibao.com"])
+2026-04-14 15:18:45.351 | INFO     | app.blueprints.register_all:register_all_blueprints:56 - blueprint初始化成功
+2026-04-14 15:18:45.351 | INFO     | app.exception.exception_handler:init_exception_handler:58 - 异常捕获器初始化成功
+2026-04-14 15:18:45.392 | INFO     | app.app_init:<module>:105 - 数据库表与初始账号检查完成
+2026-04-14 15:18:45.392 | INFO     | app.sensitive_word.sensitive_word_context:load_sensitive_words:19 - 正在加载敏感词...
+2026-04-14 15:18:45.395 | INFO     | app.sensitive_word.sensitive_word_context:load_sensitive_words:32 - 未找到启用的敏感词
+[2026-04-14 15:18:45 +0800] [97805] [INFO] Starting gunicorn 23.0.0
+[2026-04-14 15:18:45 +0800] [97805] [INFO] Listening at: http://0.0.0.0:60400 (97805)
+[2026-04-14 15:18:45 +0800] [97805] [INFO] Using worker: gthread
+[2026-04-14 15:18:45 +0800] [97861] [INFO] Booting worker with pid: 97861
+[2026-04-14 15:18:45 +0800] [97862] [INFO] Booting worker with pid: 97862
+2026-04-14 15:19:01.173 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 15:19:10.137 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 15:19:15.948 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 15:20:27.671 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:20:27.676 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:20:27.683 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:20:27.691 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:22:46.528 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:22:46.538 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:22:46.540 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:22:46.598 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:26:22.331 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:26:22.331 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:26:22.336 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:26:22.336 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:26:26.647 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 15:26:27.677 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 15:26:34.624 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 15:26:43.368 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:26:43.367 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:26:43.392 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:26:43.379 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:26:53.621 | INFO     | app.database.database_settings:auto_commit_db:130 - 异常，事务回滚
+2026-04-14 15:26:53.624 | ERROR    | app.exception.exception_handler:handle_bmos_exception:40 - 用户名或密码错误
+2026-04-14 15:26:56.285 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 15:27:07.130 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 15:27:07.748 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 15:27:08.215 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 15:27:08.305 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 15:27:08.485 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 15:27:45.246 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 15:28:48.594 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:28:48.595 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:28:48.599 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:28:48.599 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:31:01.802 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:31:01.806 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:31:01.808 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:31:01.813 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:31:50.181 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:31:50.869 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:31:50.879 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:31:50.881 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:31:50.882 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:32:56.158 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:32:56.232 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:32:56.833 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:32:56.835 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:32:56.843 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:32:56.848 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:35:04.225 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:35:04.227 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:35:04.231 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:35:04.238 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:35:04.319 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:35:04.324 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:35:04.328 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:35:04.344 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:35:36.068 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:35:36.128 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:35:36.656 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:35:36.663 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:35:36.664 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:35:36.666 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:37:21.453 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:37:21.494 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:37:22.100 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:37:22.101 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:37:22.102 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:37:22.104 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:38:22.840 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:38:23.302 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:38:23.310 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:38:23.314 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:38:23.317 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:39:34.557 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:39:34.599 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:39:35.168 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:39:35.172 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:39:35.182 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:39:35.183 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:40:13.325 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:40:13.342 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:40:13.328 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:40:13.352 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:40:13.805 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:40:13.811 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:40:13.815 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:40:13.817 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:41:02.799 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:41:02.798 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:41:02.800 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:41:02.823 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:41:03.432 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:41:03.438 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:41:03.442 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:41:03.446 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:43:05.378 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:43:05.378 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:43:05.399 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:43:05.380 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:43:06.022 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:43:06.031 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:43:06.034 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:43:06.039 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:44:00.064 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:44:00.068 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:44:00.079 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:44:00.077 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:44:00.918 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:44:00.927 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:44:00.931 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:44:00.932 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:45:25.860 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:45:25.873 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:45:25.875 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:45:25.881 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:45:29.643 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 15:45:30.690 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 15:45:33.679 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 15:45:46.078 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:45:46.085 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:45:46.093 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:45:46.099 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:46:04.075 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 15:48:37.367 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:48:37.371 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:48:37.373 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:48:37.434 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:48:41.692 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:48:41.728 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:48:41.737 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:48:41.734 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:48:53.259 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 15:48:53.686 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:48:54.090 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:48:54.115 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:48:54.152 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:48:54.159 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:49:12.299 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 15:49:12.990 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:49:13.794 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:49:13.795 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:49:13.801 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:49:13.806 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:54:26.231 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:54:26.231 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:54:32.486 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:54:32.490 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:57:33.428 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:57:33.438 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:57:45.716 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 15:57:46.429 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:57:47.086 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:57:47.087 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:58:57.136 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 15:59:04.496 | ERROR    | app.exception.exception_handler:handle_base_exception:50 - <class 'werkzeug.exceptions.MethodNotAllowed'> 405 Method Not Allowed: The method is not allowed for the requested URL.
+Traceback (most recent call last):
+
+  File "/private/tmp/uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/threading.py", line 1032, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x10138ad40>
+    └ <Thread(ThreadPoolExecutor-1_1, started 6233878528)>
+  File "/private/tmp/uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x10138aa20>
+    └ <Thread(ThreadPoolExecutor-1_1, started 6233878528)>
+  File "/private/tmp/uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/threading.py", line 1012, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(ThreadPoolExecutor-1_1, started 6233878528)>
+    │    │        │    └ (<weakref at 0x119431ad0; to 'ThreadPoolExecutor' at 0x101936e70>, <_queue.SimpleQueue object at 0x1193733d0>, None, ())
+    │    │        └ <Thread(ThreadPoolExecutor-1_1, started 6233878528)>
+    │    └ <function _worker at 0x1096adc60>
+    └ <Thread(ThreadPoolExecutor-1_1, started 6233878528)>
+  File "/private/tmp/uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/concurrent/futures/thread.py", line 93, in _worker
+    work_item.run()
+    │         └ <function _WorkItem.run at 0x1096adda0>
+    └ <concurrent.futures.thread._WorkItem object at 0x1193f1130>
+  File "/private/tmp/uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             │    │   │    │       │    └ {}
+             │    │   │    │       └ <concurrent.futures.thread._WorkItem object at 0x1193f1130>
+             │    │   │    └ (<gunicorn.workers.gthread.TConn object at 0x1193f3a70>,)
+             │    │   └ <concurrent.futures.thread._WorkItem object at 0x1193f1130>
+             │    └ <bound method ThreadWorker.handle of <gunicorn.workers.gthread.ThreadWorker object at 0x101a4ddf0>>
+             └ <concurrent.futures.thread._WorkItem object at 0x1193f1130>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/gunicorn/workers/gthread.py", line 281, in handle
+    keepalive = self.handle_request(req, conn)
+                │    │              │    └ <gunicorn.workers.gthread.TConn object at 0x1193f3a70>
+                │    │              └ <gunicorn.http.message.Request object at 0x119438b00>
+                │    └ <function ThreadWorker.handle_request at 0x101a50d60>
+                └ <gunicorn.workers.gthread.ThreadWorker object at 0x101a4ddf0>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/gunicorn/workers/gthread.py", line 333, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+               │    │    │        │    └ <function Response.start_response at 0x101a389a0>
+               │    │    │        └ <gunicorn.http.wsgi.Response object at 0x1193f3d40>
+               │    │    └ {'wsgi.errors': <gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x1193f2e60>, 'wsgi.version': (1, 0), 'wsgi.multithread': Tru...
+               │    └ <BmosFlask 'app.app_init'>
+               └ <gunicorn.workers.gthread.ThreadWorker object at 0x101a4ddf0>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/flask/app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           │    │        │        └ <bound method Response.start_response of <gunicorn.http.wsgi.Response object at 0x1193f3d40>>
+           │    │        └ {'wsgi.errors': <gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x1193f2e60>, 'wsgi.version': (1, 0), 'wsgi.multithread': Tru...
+           │    └ <function Flask.wsgi_app at 0x107269800>
+           └ <BmosFlask 'app.app_init'>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               │    └ <function Flask.full_dispatch_request at 0x107268f40>
+               └ <BmosFlask 'app.app_init'>
+> File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         │    └ <function Flask.dispatch_request at 0x107268ea0>
+         └ <BmosFlask 'app.app_init'>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/flask/app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+    │    │                       └ <Request 'http://127.0.0.1:60400/api/app/agent/auth/login' [GET]>
+    │    └ <function Flask.raise_routing_exception at 0x107268860>
+    └ <BmosFlask 'app.app_init'>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/flask/app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+          │       └ <MethodNotAllowed '405: Method Not Allowed'>
+          └ <Request 'http://127.0.0.1:60400/api/app/agent/auth/login' [GET]>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/flask/ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             │    │           └ <function MapAdapter.match at 0x1070c51c0>
+             │    └ <werkzeug.routing.map.MapAdapter object at 0x1193f2ab0>
+             └ <RequestContext 'http://127.0.0.1:60400/api/app/agent/auth/login' [GET] of app.app_init>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/werkzeug/routing/map.py", line 624, in match
+    raise MethodNotAllowed(valid_methods=list(e.have_match_for)) from None
+          └ <class 'werkzeug.exceptions.MethodNotAllowed'>
+
+werkzeug.exceptions.MethodNotAllowed: 405 Method Not Allowed: The method is not allowed for the requested URL.
+2026-04-14 15:59:22.429 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 16:11:09.898 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 16:11:09.898 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 16:11:20.413 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 16:11:21.162 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 16:11:21.921 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 16:11:21.926 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 16:53:33.707 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 16:53:33.707 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 17:04:35.692 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 17:04:35.714 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 17:10:16.021 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 17:10:17.387 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 17:10:18.212 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 17:10:18.230 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 17:12:14.339 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 17:12:15.028 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 17:12:15.172 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 17:12:16.228 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 17:12:16.239 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 17:15:31.363 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 17:15:32.080 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 17:15:32.179 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 17:15:32.948 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 17:15:32.954 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 17:17:31.743 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 17:17:43.296 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 17:17:43.325 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 17:18:04.686 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 17:18:04.695 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 17:22:22.562 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 17:22:22.567 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 17:23:01.008 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 17:23:01.013 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 17:23:15.693 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 17:23:35.044 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 17:23:35.616 | ERROR    | app.exception.exception_handler:handle_base_exception:50 - <class 'werkzeug.exceptions.NotFound'> 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+
+  File "/private/tmp/uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/threading.py", line 1032, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x10138ad40>
+    └ <Thread(ThreadPoolExecutor-1_0, started 6217052160)>
+  File "/private/tmp/uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x10138aa20>
+    └ <Thread(ThreadPoolExecutor-1_0, started 6217052160)>
+  File "/private/tmp/uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/threading.py", line 1012, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(ThreadPoolExecutor-1_0, started 6217052160)>
+    │    │        │    └ (<weakref at 0x1193729d0; to 'ThreadPoolExecutor' at 0x101936e70>, <_queue.SimpleQueue object at 0x1193733d0>, None, ())
+    │    │        └ <Thread(ThreadPoolExecutor-1_0, started 6217052160)>
+    │    └ <function _worker at 0x1096adc60>
+    └ <Thread(ThreadPoolExecutor-1_0, started 6217052160)>
+  File "/private/tmp/uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/concurrent/futures/thread.py", line 93, in _worker
+    work_item.run()
+    │         └ <function _WorkItem.run at 0x1096adda0>
+    └ <concurrent.futures.thread._WorkItem object at 0x1194385f0>
+  File "/private/tmp/uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             │    │   │    │       │    └ {}
+             │    │   │    │       └ <concurrent.futures.thread._WorkItem object at 0x1194385f0>
+             │    │   │    └ (<gunicorn.workers.gthread.TConn object at 0x11934f260>,)
+             │    │   └ <concurrent.futures.thread._WorkItem object at 0x1194385f0>
+             │    └ <bound method ThreadWorker.handle of <gunicorn.workers.gthread.ThreadWorker object at 0x101a4ddf0>>
+             └ <concurrent.futures.thread._WorkItem object at 0x1194385f0>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/gunicorn/workers/gthread.py", line 281, in handle
+    keepalive = self.handle_request(req, conn)
+                │    │              │    └ <gunicorn.workers.gthread.TConn object at 0x11934f260>
+                │    │              └ <gunicorn.http.message.Request object at 0x11943ae10>
+                │    └ <function ThreadWorker.handle_request at 0x101a50d60>
+                └ <gunicorn.workers.gthread.ThreadWorker object at 0x101a4ddf0>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/gunicorn/workers/gthread.py", line 333, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+               │    │    │        │    └ <function Response.start_response at 0x101a389a0>
+               │    │    │        └ <gunicorn.http.wsgi.Response object at 0x11934e4b0>
+               │    │    └ {'wsgi.errors': <gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x11934f0a0>, 'wsgi.version': (1, 0), 'wsgi.multithread': Tru...
+               │    └ <BmosFlask 'app.app_init'>
+               └ <gunicorn.workers.gthread.ThreadWorker object at 0x101a4ddf0>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/flask/app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           │    │        │        └ <bound method Response.start_response of <gunicorn.http.wsgi.Response object at 0x11934e4b0>>
+           │    │        └ {'wsgi.errors': <gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x11934f0a0>, 'wsgi.version': (1, 0), 'wsgi.multithread': Tru...
+           │    └ <function Flask.wsgi_app at 0x107269800>
+           └ <BmosFlask 'app.app_init'>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               │    └ <function Flask.full_dispatch_request at 0x107268f40>
+               └ <BmosFlask 'app.app_init'>
+> File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         │    └ <function Flask.dispatch_request at 0x107268ea0>
+         └ <BmosFlask 'app.app_init'>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/flask/app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+    │    │                       └ <Request 'http://127.0.0.1:60400/api/app/platform/menu/auth/tree?rootMenuCode=230' [GET]>
+    │    └ <function Flask.raise_routing_exception at 0x107268860>
+    └ <BmosFlask 'app.app_init'>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/flask/app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+          │       └ <NotFound '404: Not Found'>
+          └ <Request 'http://127.0.0.1:60400/api/app/platform/menu/auth/tree?rootMenuCode=230' [GET]>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/flask/ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             │    │           └ <function MapAdapter.match at 0x1070c51c0>
+             │    └ <werkzeug.routing.map.MapAdapter object at 0x1193f2b70>
+             └ <RequestContext 'http://127.0.0.1:60400/api/app/platform/menu/auth/tree?rootMenuCode=230' [GET] of app.app_init>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+          └ <class 'werkzeug.exceptions.NotFound'>
+
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2026-04-14 17:23:35.816 | ERROR    | app.exception.exception_handler:handle_base_exception:50 - <class 'werkzeug.exceptions.NotFound'> 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+
+  File "/private/tmp/uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/threading.py", line 1032, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x10138ad40>
+    └ <Thread(ThreadPoolExecutor-1_2, started 6250704896)>
+  File "/private/tmp/uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x10138aa20>
+    └ <Thread(ThreadPoolExecutor-1_2, started 6250704896)>
+  File "/private/tmp/uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/threading.py", line 1012, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(ThreadPoolExecutor-1_2, started 6250704896)>
+    │    │        │    └ (<weakref at 0x119433100; to 'ThreadPoolExecutor' at 0x101936e70>, <_queue.SimpleQueue object at 0x1193733d0>, None, ())
+    │    │        └ <Thread(ThreadPoolExecutor-1_2, started 6250704896)>
+    │    └ <function _worker at 0x1096adc60>
+    └ <Thread(ThreadPoolExecutor-1_2, started 6250704896)>
+  File "/private/tmp/uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/concurrent/futures/thread.py", line 93, in _worker
+    work_item.run()
+    │         └ <function _WorkItem.run at 0x1096adda0>
+    └ <concurrent.futures.thread._WorkItem object at 0x1193f3470>
+  File "/private/tmp/uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             │    │   │    │       │    └ {}
+             │    │   │    │       └ <concurrent.futures.thread._WorkItem object at 0x1193f3470>
+             │    │   │    └ (<gunicorn.workers.gthread.TConn object at 0x119455e50>,)
+             │    │   └ <concurrent.futures.thread._WorkItem object at 0x1193f3470>
+             │    └ <bound method ThreadWorker.handle of <gunicorn.workers.gthread.ThreadWorker object at 0x101a4ddf0>>
+             └ <concurrent.futures.thread._WorkItem object at 0x1193f3470>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/gunicorn/workers/gthread.py", line 281, in handle
+    keepalive = self.handle_request(req, conn)
+                │    │              │    └ <gunicorn.workers.gthread.TConn object at 0x119455e50>
+                │    │              └ <gunicorn.http.message.Request object at 0x1193f3ec0>
+                │    └ <function ThreadWorker.handle_request at 0x101a50d60>
+                └ <gunicorn.workers.gthread.ThreadWorker object at 0x101a4ddf0>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/gunicorn/workers/gthread.py", line 333, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+               │    │    │        │    └ <function Response.start_response at 0x101a389a0>
+               │    │    │        └ <gunicorn.http.wsgi.Response object at 0x11943bb90>
+               │    │    └ {'wsgi.errors': <gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x11943a830>, 'wsgi.version': (1, 0), 'wsgi.multithread': Tru...
+               │    └ <BmosFlask 'app.app_init'>
+               └ <gunicorn.workers.gthread.ThreadWorker object at 0x101a4ddf0>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/flask/app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           │    │        │        └ <bound method Response.start_response of <gunicorn.http.wsgi.Response object at 0x11943bb90>>
+           │    │        └ {'wsgi.errors': <gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x11943a830>, 'wsgi.version': (1, 0), 'wsgi.multithread': Tru...
+           │    └ <function Flask.wsgi_app at 0x107269800>
+           └ <BmosFlask 'app.app_init'>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               │    └ <function Flask.full_dispatch_request at 0x107268f40>
+               └ <BmosFlask 'app.app_init'>
+> File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         │    └ <function Flask.dispatch_request at 0x107268ea0>
+         └ <BmosFlask 'app.app_init'>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/flask/app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+    │    │                       └ <Request 'http://127.0.0.1:60400/api/app/platform/menu/auth/all?rootMenuCode=230&containsFunc=true' [GET]>
+    │    └ <function Flask.raise_routing_exception at 0x107268860>
+    └ <BmosFlask 'app.app_init'>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/flask/app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+          │       └ <NotFound '404: Not Found'>
+          └ <Request 'http://127.0.0.1:60400/api/app/platform/menu/auth/all?rootMenuCode=230&containsFunc=true' [GET]>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/flask/ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             │    │           └ <function MapAdapter.match at 0x1070c51c0>
+             │    └ <werkzeug.routing.map.MapAdapter object at 0x119455d60>
+             └ <RequestContext 'http://127.0.0.1:60400/api/app/platform/menu/auth/all?rootMenuCode=230&containsFunc=true' [GET] of app.app_i...
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+          └ <class 'werkzeug.exceptions.NotFound'>
+
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2026-04-14 17:26:18.649 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 17:26:18.649 | ERROR    | app.exception.exception_handler:handle_auth_exception:45 - 
+2026-04-14 17:26:28.958 | INFO     | app.database.database_settings:auto_commit_db:134 - 自动提交数据库事务
+2026-04-14 17:26:29.684 | ERROR    | app.exception.exception_handler:handle_base_exception:50 - <class 'werkzeug.exceptions.NotFound'> 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+
+  File "/private/tmp/uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/threading.py", line 1032, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x10138ad40>
+    └ <Thread(ThreadPoolExecutor-1_1, started 6233878528)>
+  File "/private/tmp/uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x10138aa20>
+    └ <Thread(ThreadPoolExecutor-1_1, started 6233878528)>
+  File "/private/tmp/uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/threading.py", line 1012, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(ThreadPoolExecutor-1_1, started 6233878528)>
+    │    │        │    └ (<weakref at 0x119431ad0; to 'ThreadPoolExecutor' at 0x101936e70>, <_queue.SimpleQueue object at 0x1193733d0>, None, ())
+    │    │        └ <Thread(ThreadPoolExecutor-1_1, started 6233878528)>
+    │    └ <function _worker at 0x1096adc60>
+    └ <Thread(ThreadPoolExecutor-1_1, started 6233878528)>
+  File "/private/tmp/uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/concurrent/futures/thread.py", line 93, in _worker
+    work_item.run()
+    │         └ <function _WorkItem.run at 0x1096adda0>
+    └ <concurrent.futures.thread._WorkItem object at 0x119438e60>
+  File "/private/tmp/uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             │    │   │    │       │    └ {}
+             │    │   │    │       └ <concurrent.futures.thread._WorkItem object at 0x119438e60>
+             │    │   │    └ (<gunicorn.workers.gthread.TConn object at 0x1193f3c20>,)
+             │    │   └ <concurrent.futures.thread._WorkItem object at 0x119438e60>
+             │    └ <bound method ThreadWorker.handle of <gunicorn.workers.gthread.ThreadWorker object at 0x101a4ddf0>>
+             └ <concurrent.futures.thread._WorkItem object at 0x119438e60>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/gunicorn/workers/gthread.py", line 281, in handle
+    keepalive = self.handle_request(req, conn)
+                │    │              │    └ <gunicorn.workers.gthread.TConn object at 0x1193f3c20>
+                │    │              └ <gunicorn.http.message.Request object at 0x1193f3080>
+                │    └ <function ThreadWorker.handle_request at 0x101a50d60>
+                └ <gunicorn.workers.gthread.ThreadWorker object at 0x101a4ddf0>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/gunicorn/workers/gthread.py", line 333, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+               │    │    │        │    └ <function Response.start_response at 0x101a389a0>
+               │    │    │        └ <gunicorn.http.wsgi.Response object at 0x11943a840>
+               │    │    └ {'wsgi.errors': <gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x11943a230>, 'wsgi.version': (1, 0), 'wsgi.multithread': Tru...
+               │    └ <BmosFlask 'app.app_init'>
+               └ <gunicorn.workers.gthread.ThreadWorker object at 0x101a4ddf0>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/flask/app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           │    │        │        └ <bound method Response.start_response of <gunicorn.http.wsgi.Response object at 0x11943a840>>
+           │    │        └ {'wsgi.errors': <gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x11943a230>, 'wsgi.version': (1, 0), 'wsgi.multithread': Tru...
+           │    └ <function Flask.wsgi_app at 0x107269800>
+           └ <BmosFlask 'app.app_init'>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               │    └ <function Flask.full_dispatch_request at 0x107268f40>
+               └ <BmosFlask 'app.app_init'>
+> File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         │    └ <function Flask.dispatch_request at 0x107268ea0>
+         └ <BmosFlask 'app.app_init'>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/flask/app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+    │    │                       └ <Request 'http://127.0.0.1:60400/api/app/platform/menu/auth/tree?rootMenuCode=230' [GET]>
+    │    └ <function Flask.raise_routing_exception at 0x107268860>
+    └ <BmosFlask 'app.app_init'>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/flask/app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+          │       └ <NotFound '404: Not Found'>
+          └ <Request 'http://127.0.0.1:60400/api/app/platform/menu/auth/tree?rootMenuCode=230' [GET]>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/flask/ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             │    │           └ <function MapAdapter.match at 0x1070c51c0>
+             │    └ <werkzeug.routing.map.MapAdapter object at 0x11943b110>
+             └ <RequestContext 'http://127.0.0.1:60400/api/app/platform/menu/auth/tree?rootMenuCode=230' [GET] of app.app_init>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+          └ <class 'werkzeug.exceptions.NotFound'>
+
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2026-04-14 17:26:29.883 | ERROR    | app.exception.exception_handler:handle_base_exception:50 - <class 'werkzeug.exceptions.NotFound'> 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+
+  File "/private/tmp/uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/threading.py", line 1032, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x10138ad40>
+    └ <Thread(ThreadPoolExecutor-1_3, started 6267531264)>
+  File "/private/tmp/uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x10138aa20>
+    └ <Thread(ThreadPoolExecutor-1_3, started 6267531264)>
+  File "/private/tmp/uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/threading.py", line 1012, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(ThreadPoolExecutor-1_3, started 6267531264)>
+    │    │        │    └ (<weakref at 0x119433c90; to 'ThreadPoolExecutor' at 0x101a4ddf0>, <_queue.SimpleQueue object at 0x1193733d0>, None, ())
+    │    │        └ <Thread(ThreadPoolExecutor-1_3, started 6267531264)>
+    │    └ <function _worker at 0x1096adc60>
+    └ <Thread(ThreadPoolExecutor-1_3, started 6267531264)>
+  File "/private/tmp/uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/concurrent/futures/thread.py", line 93, in _worker
+    work_item.run()
+    │         └ <function _WorkItem.run at 0x1096adda0>
+    └ <concurrent.futures.thread._WorkItem object at 0x11943c230>
+  File "/private/tmp/uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             │    │   │    │       │    └ {}
+             │    │   │    │       └ <concurrent.futures.thread._WorkItem object at 0x11943c230>
+             │    │   │    └ (<gunicorn.workers.gthread.TConn object at 0x11943f8f0>,)
+             │    │   └ <concurrent.futures.thread._WorkItem object at 0x11943c230>
+             │    └ <bound method ThreadWorker.handle of <gunicorn.workers.gthread.ThreadWorker object at 0x1019c6c60>>
+             └ <concurrent.futures.thread._WorkItem object at 0x11943c230>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/gunicorn/workers/gthread.py", line 281, in handle
+    keepalive = self.handle_request(req, conn)
+                │    │              │    └ <gunicorn.workers.gthread.TConn object at 0x11943f8f0>
+                │    │              └ <gunicorn.http.message.Request object at 0x1193f3710>
+                │    └ <function ThreadWorker.handle_request at 0x101a50d60>
+                └ <gunicorn.workers.gthread.ThreadWorker object at 0x1019c6c60>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/gunicorn/workers/gthread.py", line 333, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+               │    │    │        │    └ <function Response.start_response at 0x101a389a0>
+               │    │    │        └ <gunicorn.http.wsgi.Response object at 0x11943e510>
+               │    │    └ {'wsgi.errors': <gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x11943db70>, 'wsgi.version': (1, 0), 'wsgi.multithread': Tru...
+               │    └ <BmosFlask 'app.app_init'>
+               └ <gunicorn.workers.gthread.ThreadWorker object at 0x1019c6c60>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/flask/app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           │    │        │        └ <bound method Response.start_response of <gunicorn.http.wsgi.Response object at 0x11943e510>>
+           │    │        └ {'wsgi.errors': <gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x11943db70>, 'wsgi.version': (1, 0), 'wsgi.multithread': Tru...
+           │    └ <function Flask.wsgi_app at 0x107269800>
+           └ <BmosFlask 'app.app_init'>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               │    └ <function Flask.full_dispatch_request at 0x107268f40>
+               └ <BmosFlask 'app.app_init'>
+> File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         │    └ <function Flask.dispatch_request at 0x107268ea0>
+         └ <BmosFlask 'app.app_init'>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/flask/app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+    │    │                       └ <Request 'http://127.0.0.1:60400/api/app/platform/menu/auth/all?rootMenuCode=230&containsFunc=true' [GET]>
+    │    └ <function Flask.raise_routing_exception at 0x107268860>
+    └ <BmosFlask 'app.app_init'>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/flask/app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+          │       └ <NotFound '404: Not Found'>
+          └ <Request 'http://127.0.0.1:60400/api/app/platform/menu/auth/all?rootMenuCode=230&containsFunc=true' [GET]>
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/flask/ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             │    │           └ <function MapAdapter.match at 0x1070c51c0>
+             │    └ <werkzeug.routing.map.MapAdapter object at 0x11943cfe0>
+             └ <RequestContext 'http://127.0.0.1:60400/api/app/platform/menu/auth/all?rootMenuCode=230&containsFunc=true' [GET] of app.app_i...
+  File "/Users/liang/code/agent/la-agent-py/.venv/lib/python3.12/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+          └ <class 'werkzeug.exceptions.NotFound'>
+
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+[2026-04-14 17:27:20 +0800] [97862] [INFO] Parent changed, shutting down: <Worker 97862>
+[2026-04-14 17:27:20 +0800] [97861] [INFO] Parent changed, shutting down: <Worker 97861>
+[2026-04-14 17:27:20 +0800] [97862] [INFO] Worker exiting (pid: 97862)
+[2026-04-14 17:27:20 +0800] [97861] [INFO] Worker exiting (pid: 97861)
+/private/tmp/uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 16 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

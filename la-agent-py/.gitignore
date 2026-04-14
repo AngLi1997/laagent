@@ -1,0 +1,10 @@
+.idea/
+.vscode/
+*/.DS_Store/
+*/__pycache__/
+/nacos-data/
+.venv
+.env
+/log
+/nacos-data
+/mount/

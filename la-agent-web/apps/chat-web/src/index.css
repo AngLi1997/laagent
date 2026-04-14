@@ -1,0 +1,150 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  height: 100%;
+  font-size: 14px;
+  font-family: '思源黑体', 'Microsoft YaHei' !important;
+  line-height: 1.4;
+  overflow: hidden;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+
+  --bmos-primary-color: #2871ff;
+  --bmos-primary-color-white: #ffffff;
+  --bmos-primary-color-background: #ebf1ff;
+  --bmos-primary-color-tab: #d9e5ff;
+  --bmos-primary-color-hover: #5991ff;
+  --bmos-primary-color-active: #2260d9;
+
+  --bmos-primary-color-menu: #103566;
+  --bmos-primary-color-menu-level-2: #0d2f59;
+
+  --bmos-success-color: #59bf78;
+  --bmos-success-color-light-background: #eaf9f4;
+  --bmos-success-color-stroke: #bde5c9;
+  --bmos-success-color-stroke-hover: #8bd2a1;
+  --bmos-success-color-hover: #72c98c;
+  --bmos-success-color-active: #52b06e;
+
+  --bmos-warning-color: #ff9a2f;
+  --bmos-warning-color-light-background: #ffecd8;
+  --bmos-warning-color-stroke: #ffd7ac;
+  --bmos-warning-color-stroke-hover: #ffb86d;
+  --bmos-warning-color-hover: #ffa94e;
+  --bmos-warning-color-active: #eb8e2b;
+
+  --bmos-danger-color: #ff5633;
+  --bmos-danger-color-light-background: #ffd7cf;
+  --bmos-danger-color-stroke: #ffbbad;
+  --bmos-danger-color-stroke-hover: #ff8970;
+  --bmos-danger-color-hover: #ff6f52;
+  --bmos-danger-color-active: #eb4f2f;
+
+  --bmos-limit-color: #574efa;
+
+  --bmos-purple-color: #574efa;
+  --bmos-confirm-color: #00bfff;
+
+  --bmos-first-level-text-color: #18191a;
+  --bmos-second-level-text-color: #242526;
+  --bmos-third-level-text-color: #606266;
+  --bmos-fourth-level-text-color: #909398;
+  --bmos-fifth-level-text-color: #c1c4cb;
+  --bmos-first-level-border-color: #d4d7d9;
+  --bmos-second-level-border-color: #e1e3e5;
+
+  --bmos-background-color: #f5f7fa;
+  --bmos-disable-color: #f2f3f4;
+  --bmos-table-td-color: #fafafa;
+
+  --bmos-title-font-size: 20px;
+  --bmos-page-title-font-size: 18px;
+  --bmos-bold-title-font-size: 16px;
+  --bmos-bold-title-font-weight: medium;
+  --bmos-module-title-font-size: 16px;
+  --bmos-primary-font-size: 14px;
+  --bmos-primary-font-weight: medium;
+  --bmos-font-size: 14px;
+  --bmos-description-font-size: 12px;
+
+  --bmos-padding-mini: 12px;
+  --bmos-padding-small: 16px;
+  --bmos-padding-medium: 20px;
+  --bmos-padding-large: 24px;
+
+  --bmos-margin-small: 8px;
+  --bmos-margin-medium: 12px;
+  --bmos-margin-large: 16px;
+
+  --bmos-module-margin-small: 16px;
+  --bmos-module-margin-medium: 24px;
+  --bmos-module-margin-large: 32px;
+
+  --bmos-tab-checkable-color-background: #F0F1F2;
+  --bmos-tab-checkable-color: #606266;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+.input {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+/* button:hover {
+  border-color: #646cff;
+} */
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}

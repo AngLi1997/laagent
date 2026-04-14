@@ -1,0 +1,18 @@
+.DS_Store
+.idea/
+.vscode/
+
+# Python
+**/__pycache__/
+**/*.py[cod]
+la-agent-py/.venv/
+la-agent-py/log/
+la-agent-py/mount/
+.env
+
+# Node
+**/node_modules/
+**/dist/
+
+# Local nested repo metadata
+la-agent-web/.git

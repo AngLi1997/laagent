@@ -1,0 +1,16 @@
+export const STANDARD_REQ_ORDER = 1;
+export const API_VERSION_REQ_ORDER = 2;
+export const APP_TOKEN_REQ_ORDER = 3;
+export const USER_TOKEN_REQ_ORDER = 4;
+export const API_VERSION_RES_ORDER = 1;
+export const STANDARD_RES_ORDER = 2;
+export const STANDARD_ERR_ORDER = 1;
+export const ERROR_LOCALIZE_ERR_ORDER = 2;
+export const ERROR_TRACE_ERR_ORDER = 3;
+export const PROCESS_FAULT_ERR_ORDER = 4;
+export const USER_LOCK_REQ_ORDER = 1;
+export const USER_TOKEN_NAME = 'bmos-access-token';
+export const LOCAL_LANG = 'LANG';
+export const HREF_LANG = 'lang';
+export const STANDARD_REQ_LANG = 'language';
+export const SUCCESS = 'success';

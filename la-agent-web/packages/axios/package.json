@@ -1,0 +1,36 @@
+{
+  "name": "@bmos/axios",
+  "version": "0.0.0",
+  "description": "demo",
+  "author": "Ansel",
+  "license": "MIT",
+  "keywords": [
+    "request",
+    "axios"
+  ],
+  "exports": {
+    ".": {
+      "require": "./src/index.ts",
+      "module": "./src/index.ts"
+    }
+  },
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "types": "",
+  "files": [
+    "README.md",
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "test": "echo test"
+  },
+  "dependencies": {
+    "axios": "^1.8.4",
+    "lodash-es": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.12",
+    "@types/qs": "^6.9.18"
+  }
+}
